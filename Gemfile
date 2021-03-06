@@ -28,6 +28,14 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+gem 'pry-byebug'
+gem 'better_errors'
+gem 'awesome_print'
+# populate database with fake data for demo purpose
+gem 'faker'
+# Hirb.enable displays nice database schema and entries in ASCII table
+gem 'hirb'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -53,4 +61,6 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# Uncomment the following line if you're running Rails
+# on a native Windows system:
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
