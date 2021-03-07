@@ -39,4 +39,4 @@ yarn-debug.log*
 /._DS_Store
 
 # Ignore db test files.
-db/test.*
+# db/test.*
