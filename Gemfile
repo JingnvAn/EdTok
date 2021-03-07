@@ -64,3 +64,7 @@ end
 # Uncomment the following line if you're running Rails
 # on a native Windows system:
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+#Add Bootstrap
+gem 'bootstrap-sass', '3.4.1'
