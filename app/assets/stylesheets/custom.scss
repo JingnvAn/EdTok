@@ -26,7 +26,7 @@ body {
   .center h1 {
     margin-bottom: 10px;
   }
-
+  
 
   /* typography */
 
@@ -72,11 +72,16 @@ h1, h2, h3, h4, h5, h6 {
       text-decoration: none;
     }
   }
+  /* change nav bar background color */
+  .navbar-inverse {
+    background-color: #23689b;
+    border-color: #23689b;
+  }
 
   /* footer */
 
 footer{
-  background-color: #94ebcd;
+  background-color: #8ac4d0;
   /* height: 70px; */
   width: 100%;
   position:absolute;
