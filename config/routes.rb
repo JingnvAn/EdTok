@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :likes
+  resources :comments
+  resources :subjects
+  resources :videos
+  resources :users
   get 'static_pages/hello'
   get '/hello', to: 'static_pages#hello'
   get '/home', to: 'static_pages#home'
