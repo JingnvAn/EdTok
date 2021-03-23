@@ -9,5 +9,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get '/home', to: 'static_pages#home'
+  get '/explore', to: 'static_pages#explore'
+  get '/about', to: 'static_pages#about'
+  get '/behind_the_scene', to: 'static_pages#behind_the_scene'
   get  '/signup',  to: 'users#new'
 end
