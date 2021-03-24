@@ -19,7 +19,8 @@ Like.delete_all
 user_file = File.read('./db/test_datafiles/users.json')
 user_hash = JSON.parse(user_file)
 user_hash.each do |user|
-    User.create(name: user['name'], username: user['username'], email: user['email'], bio: user['bio'])
+    User.create(name: user['name'], username: user['username'], email: user['email'], bio: user['bio'],
+                password: "foobar", password_confirmation: "foobar")
 end
 
 
