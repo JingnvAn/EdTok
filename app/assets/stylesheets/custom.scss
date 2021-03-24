@@ -27,6 +27,9 @@ body {
     margin-bottom: 10px;
   }
   
+  .leftside {
+    text-align: left;
+  }
 
   /* typography */
 
@@ -84,7 +87,7 @@ footer{
   background-color: #8ac4d0;
   /* height: 70px; */
   width: 100%;
-  position:absolute;
+  position:fixed;
   left:0;
   right:0;
   bottom:0; 
@@ -93,4 +96,24 @@ footer{
   margin:15px;
   text-align: center; 
   font-size:20px;
+}
+
+
+  /* home_page */
+
+div.intro_image {
+  display: inline;
+  //left: 10px;
+  //top:100px;
+}
+
+h1.intro_title {
+  display: inline;
+  //top:100px;
+}
+
+p.intro_content{
+  position:relative;
+  top:240;
+  left:140px;
 }

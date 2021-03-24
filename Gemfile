@@ -68,3 +68,11 @@ end
 
 #Add Bootstrap
 gem 'bootstrap-sass', '3.4.1'
+
+#Add jekyll -- a layout tool
+gem "jekyll"
+
+group :jekyll_plugins do
+  gem "jekyll-feed"
+  gem "jekyll-seo-tag"
+end
