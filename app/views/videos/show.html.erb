@@ -1,9 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Title:</strong>
   <%= @video.name %>
 </p>
 
+<p>
+  <strong>File:</strong>
+  <video controls width="640" height="480" src="<%= @video.file %>"></video>
+</p>
+
+<div class="leftside">
 <%= link_to 'Edit', edit_video_path(@video) %> |
 <%= link_to 'Back', videos_path %>
+</div>
