@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
   resources :likes
   resources :comments
   resources :subjects
@@ -12,5 +13,8 @@ Rails.application.routes.draw do
   get '/explore', to: 'static_pages#explore'
   get '/about', to: 'static_pages#about'
   get '/behind_the_scene', to: 'static_pages#behind_the_scene'
-  get  '/signup',  to: 'users#new'
+  get '/signup', to: 'users#new'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 end
