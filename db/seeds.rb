@@ -26,7 +26,7 @@ end
 
 # Create some test videos for the test users
 User.all.each do |user|
-    vid_name = "#{user.name}'s video"
+    vid_name = "#{user.name}'s placeholder"
     user.videos << Video.create(name: vid_name)
 end 
 
