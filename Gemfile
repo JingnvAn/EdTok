@@ -21,11 +21,19 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-# allow video upload
-gem 'carrierwave'
-gem 'carrierwave-video'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+# allow video upload
+# gem 'carrierwave', '~> 2.0'
+
+# Carrierwave
+gem 'carrierwave-video'
+gem 'carrierwave-video-thumbnailer'
+gem 'carrierwave_backgrounder'
+gem 'streamio-ffmpeg'
+
+# Delayed job used by carrierwave_backgrounder
+gem 'delayed_job_active_record'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
