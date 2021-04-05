@@ -1,3 +1,4 @@
+
 <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
         <%= link_to "EdTok", '#', id: "logo" %>
@@ -8,6 +9,7 @@
             <li><%= link_to "About", about_path %></li>
             
             <% if logged_in? %>
+              <li><%= link_to "Profile", profile_path %></li>
               <li><%= link_to "Log out", logout_path, method: :delete %></li>
             <% else %>
               <li><%= link_to "Log in", login_path %></li>
@@ -17,3 +19,31 @@
         </nav>
      </div>
 </header>
+
+
+<!--
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+
+        <%= link_to "EdTok", '#', id: "logo", class: "nav-link" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item"><%= link_to "Home", home_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "Explore", explore_path, class: "nav-link"  %></li>
+            <li class="nav-item"><%= link_to "About", about_path, class: "nav-link"  %></li>
+            
+            <% if logged_in? %>
+              <li class="nav-item"><%= link_to "Profile", profile_path, class: "nav-link"  %></li>
+              <li class="nav-item"><%= link_to "Log out", logout_path, method: :delete, class: "nav-link"  %></li>
+            <% else %>
+              <li class="nav-item"><%= link_to "Log in", login_path, class: "nav-link"  %></li>
+              <li class="nav-item"><%= link_to "Sign up!", signup_path, class: "nav-link"  %></li>
+            <% end %>
+          </ul>
+        </nav>
+
+  </div>
+</header>
+
+
+-->
