@@ -51,14 +51,18 @@
 
 <div class="container">
   <div class="row">
-  
-    <div class="col profile-thumbnail first">
-      <p>Upload</p>
+
+    <div class="col">
+      <div class="profile-thumbnail first">
+        <p>Upload</p>
+      </div>
     </div>
 
     <% @user.videos.each do |video| %>
-      <div class="col profile-thumbnail">
-        <p><%= video.name %></p>
+      <div class="col">
+        <div class="profile-thumbnail">
+          <p><%= video.name %></p>
+        </div>  
       </div>
     <% end %>
 
