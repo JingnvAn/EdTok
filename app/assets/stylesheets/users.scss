@@ -1,3 +1,44 @@
 // Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+
+$theme-pink: rgb(230, 130, 163);
+
+.profile-head {
+    text-align: center;
+    padding-bottom: 30px;
+
+    .profile-img {
+        // insert image styling here
+    }
+
+    #username {
+        font-weight: bold;
+        padding-bottom: 20px;
+    }
+
+    button {
+        // Button box
+        height: 40px;
+        width: 120px;
+        background-color: $theme-pink;
+        border: none;
+
+        // Button text
+        color: black;
+        font-size: medium;
+        
+    }
+}
+
+.profile-thumbnail {
+    height: 130px;
+    width: 250px;
+    background-color: $theme-pink;
+    border-radius: 20px;
+
+    p {
+        text-align: center;
+        vertical-align: middle;
+        line-height: 130px;
+    }
+}
+
