@@ -16,6 +16,11 @@
 The EdTok aims to spread more knowledge in the form of short videos, helping users to utilize their leisure time to gain some interesting things through enjoyable ways.  Users can follow any other users on the platform, find who has followed them and who they are following. Users share their work or expertise by uploading videos to the app and others can find it, respond (similar to a like button) to it if they like it, or make a comment on it. 
 
 
+### Prototype 
+
+Can be found at "EdTok prototype.pdf"
+
+
 
 ### In development(core view)
 
