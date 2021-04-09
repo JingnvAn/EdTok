@@ -36,6 +36,7 @@ gem 'carrierwave_backgrounder'
 gem 'streamio-ffmpeg'
 gem 'ffmpeg'
 
+
 # Delayed job used by carrierwave_backgrounder
 gem 'delayed_job_active_record'
 
