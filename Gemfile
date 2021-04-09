@@ -40,6 +40,13 @@ gem 'ffmpeg'
 # Delayed job used by carrierwave_backgrounder
 gem 'delayed_job_active_record'
 
+# Figaro parses a Git-ignored YAML file in your application and loads its values into ENV
+# to securely configure Rails applications
+gem "figaro"
+
+# for carrierwave to be able to communicate with Amazon S3
+gem "fog-aws"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
