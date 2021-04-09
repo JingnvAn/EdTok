@@ -43,4 +43,4 @@ db/.DS_Store
 # db/test.*
 
 # Ignore application configuration
-config/application.yml
+/config/application.yml
