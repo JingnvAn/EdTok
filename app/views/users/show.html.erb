@@ -1,26 +1,74 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<div class="profile-head">
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <div class="profile-img">
+    <%= gravatar_for @user %>
+  </div>
 
-<p>
-  <strong>Bio:</strong>
-  <%= @user.bio %>
-</p>
+  <h3 id="username">
+    <%= @user.username %>
+  </h3>
 
-<!--
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
--->
+  <!--
+  <p>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
+  -->
+
+  <p>
+    <strong>Followers</strong>
+  </p>
+
+  <p>
+    <strong>Following</strong>
+  <p>
+
+  <p>
+    <strong>Likes</strong>
+  </p>
+
+  <p>
+    <button>Follow</button>
+  </p>
+
+  <p>
+    <strong>Bio:</strong>
+    <%= @user.bio %>
+  </p>
+  
+</div>
+
+
+<strong>Videos:</strong>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col">
+      <div class="profile-thumbnail first">
+        <p>Upload</p>
+      </div>
+    </div>
+
+    <% @user.videos.each do |video| %>
+      <div class="col">
+        <div class="profile-thumbnail">
+          <p><%= video.name %></p>
+        </div>  
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
+
+
+
