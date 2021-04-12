@@ -41,10 +41,12 @@ $theme-pink: rgb(230, 130, 163);
 }
 
 #profile-body {
-    text-align: center;
-
+    //align-content: center;
+    
     #videos {
-        display: inline-flex;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         
         .profile-thumbnail {
             margin: 30px;
