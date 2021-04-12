@@ -23,32 +23,52 @@
   </p>
   -->
 
-  <p>
-    <strong>Followers</strong>
-  </p>
+  <div id="stats">
+    <p>
+      <strong>Followers:</strong>
+      <%= current_user.followers.count %>
+    </p>
 
-  <p>
-    <strong>Following</strong>
-  <p>
+    <p>
+      <strong>Following:</strong>
+      <%= current_user.following.count %>
+    </p>
 
-  <p>
-    <strong>Likes</strong>
-  </p>
+    <p>
+      <strong>Likes:</strong>
+      <%= Like.where(liked_by: current_user.id).count %>
+    </p>
+  </div>
 
-  <p>
+  <div id="follow">
     <button>Follow</button>
-  </p>
+  </div>
 
   <p>
-    <strong>Bio:</strong>
+    <!--<strong>Bio:</strong>-->
     <%= @user.bio %>
   </p>
   
 </div>
 
 
-<strong>Videos:</strong>
+<div id="profile-body">
+  <div id="videos">
 
+    <div class="profile-thumbnail first">
+      <p>Upload</p>
+    </div>
+
+    <% @user.videos.each do |video| %>
+      <div class="profile-thumbnail">
+        <p><%= video.name %></p>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
+<!--
 <div class="container">
   <div class="row">
 
@@ -68,6 +88,7 @@
 
   </div>
 </div>
+-->
 
 
 

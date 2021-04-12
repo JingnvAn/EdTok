@@ -4,41 +4,66 @@ $theme-pink: rgb(230, 130, 163);
 
 .profile-head {
     text-align: center;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 
     .profile-img {
-        // insert image styling here
+        padding-top: 20px;
     }
 
     #username {
         font-weight: bold;
-        padding-bottom: 20px;
     }
 
-    button {
-        // Button box
-        height: 40px;
-        width: 120px;
-        background-color: $theme-pink;
-        border: none;
+    #stats {
+        display: inline-flex;
+         
+        p {
+            padding: 20px;
+        }
+    }
 
-        // Button text
-        color: black;
-        font-size: medium;
+    #follow {
+        padding-bottom: 25px;
+
+        button {
+            // Button box
+            height: 40px;
+            width: 120px;
+            background-color: $theme-pink;
+            border: none;
+    
+            // Button text
+            color: black;
+            font-size: medium;
+        }
+    }
+    
+}
+
+#profile-body {
+    text-align: center;
+
+    #videos {
+        display: inline-flex;
         
+        .profile-thumbnail {
+            margin: 30px;
+            height: 130px;
+            width: 250px;
+            background-color: $theme-pink;
+            border-radius: 20px;
+        
+            p {
+                text-align: center;
+                vertical-align: middle;
+                line-height: 130px;
+            }
+    
+            // Insert styling for the first video "Upload" box
+        }
     }
 }
 
-.profile-thumbnail {
-    height: 130px;
-    width: 250px;
-    background-color: $theme-pink;
-    border-radius: 20px;
 
-    p {
-        text-align: center;
-        vertical-align: middle;
-        line-height: 130px;
-    }
-}
+
 
