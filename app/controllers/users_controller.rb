@@ -73,6 +73,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def follow 
+    Follow.create(user_id: current_user.id, following_id: params[:id_for_follow])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

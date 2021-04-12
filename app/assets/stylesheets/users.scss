@@ -22,10 +22,10 @@ $theme-pink: rgb(230, 130, 163);
         }
     }
 
-    #follow {
+    .follow {
         padding-bottom: 25px;
 
-        button {
+        .follow-button {
             // Button box
             height: 40px;
             width: 120px;
@@ -36,12 +36,23 @@ $theme-pink: rgb(230, 130, 163);
             color: black;
             font-size: medium;
         }
+
+        .following-button {
+            // Button box
+            height: 40px;
+            width: 120px;
+            background-color: lightpink;
+            border: none;
+    
+            // Button text
+            color: rgb(54, 54, 54);
+            font-size: medium;
+        }
     }
     
 }
 
 #profile-body {
-    //align-content: center;
     
     #videos {
         display: flex;
@@ -62,6 +73,7 @@ $theme-pink: rgb(230, 130, 163);
             }
     
             // Insert styling for the first video "Upload" box
+            
         }
     }
 }
