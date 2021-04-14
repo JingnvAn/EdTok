@@ -1,5 +1,5 @@
 <% provide(:title, "Explore") %>
-
+<%= stylesheet_link_tag 'explore' %>
 <h1> Explore Videos </h1>
 
 <!-- HTML -->
@@ -7,14 +7,24 @@
 <body>
 
 <div class="sidebar">
-<div>Subject 1</div>
-<div>Subject 2</div>
-<div>Subject 3</div>
+
+    <div>Subject 1</div>
+    <div>Subject 2</div>
+    <div>Subject 3</div>
+
+    <%= form_with url: search_path, method: :get, remote: true do |f|%>
+        <%= f.label :Search_by_video_name %>
+        <%= f.text_field :name %>
+        <%= f.submit 'search'%>
+    <% end %>
+
 </div>
 
 <div class="body-text">
 <!-- body content -->
 <%= button_to "show videos", videos_path, :method => "get" %>
+
+<%= render partial: "shared/flash"  %>
 
 </div>
 
