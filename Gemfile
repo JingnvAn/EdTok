@@ -34,8 +34,11 @@ gem 'carrierwave-video'
 gem 'carrierwave-video-thumbnailer'
 gem 'carrierwave_backgrounder'
 gem 'streamio-ffmpeg'
-gem 'ffmpeg'
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 
+#gemfile to store video in aws
+gem "figaro"
+gem "fog-aws"
 
 # Delayed job used by carrierwave_backgrounder
 gem 'delayed_job_active_record'

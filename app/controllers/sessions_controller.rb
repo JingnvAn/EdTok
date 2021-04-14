@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       # Log the user in and redirect to the user's show page.
       reset_session
       log_in user 
-      redirect_to user 
+      redirect_to profile_url 
     else
       # Create an error message.
       flash.now[:danger] = 'Invalid email/password combination' 
