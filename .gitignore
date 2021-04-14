@@ -40,3 +40,5 @@ yarn-debug.log*
 db/.DS_Store
 # Ignore db test files.
 # db/test.*
+# Ignore application configuration
+/config/application.yml

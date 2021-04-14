@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     before_save { self.email = email.downcase }
+    before_save { self.username = username.downcase }
 
     has_many :uploads
     has_many :videos, through: :uploads
@@ -13,7 +14,7 @@ class User < ApplicationRecord
     has_many :following, through: :following_relationships, source: :following
 
     validates :name, presence: true, length: { maximum: 50 }
-    validates :username, presence: true, length: { maximum: 50 }
+    validates :username, presence: true, length: { maximum: 50 }, uniqueness: true
     validates :bio, presence: true, length: { maximum: 255 }
 
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

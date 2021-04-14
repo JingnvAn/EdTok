@@ -23,52 +23,67 @@
   </p>
   -->
 
-  <p>
-    <strong>Followers</strong>
-  </p>
+  <div id="stats">
+    <p>
+      <strong>Followers:</strong>
+      <%= @user.followers.count %>
+    </p>
+
+    <p>
+      <strong>Following:</strong>
+      <%= @user.following.count %>
+    </p>
+
+    <p>
+      <strong>Likes:</strong>
+      <%= Like.where(liked_by: @user.id).count %>
+    </p>
+  </div>
+
+  <!-- Only show the Follow button if you're not on your profile -->
+  <% if !current_page?(profile_path) %>
+
+    <% if !current_user.following.find_by(id: @user.id) %>
+      <div class="follow">
+        <!-- <button>Follow</button> -->
+        <%= button_to "Follow", follow_path, params: {id_for_follow: @user.id}, method: :post, class: "follow-button"%>
+      </div>
+    <% else %>
+      <div class="follow">
+        <button class="following-button">Following</button>
+      </div>
+    <% end %>
+  
+  <% else %>
+    <%= link_to "Edit Profile", edit_user_path(current_user) %>
+  <% end %>
 
   <p>
-    <strong>Following</strong>
-  <p>
-
-  <p>
-    <strong>Likes</strong>
-  </p>
-
-  <p>
-    <button>Follow</button>
-  </p>
-
-  <p>
-    <strong>Bio:</strong>
     <%= @user.bio %>
   </p>
   
 </div>
 
 
-<strong>Videos:</strong>
+<div id="profile-body">
+  <div id="videos">
 
-<div class="container">
-  <div class="row">
-
-    <div class="col">
-      <div class="profile-thumbnail first">
-        <p>Upload</p>
-      </div>
-    </div>
+    <!-- Only show the upload icon if you're on your profile -->
+    <% if current_page?(profile_path) %>
+      <%= link_to upload_path do %>
+        <div class="profile-thumbnail first">
+          <p>Upload</p>
+        </div>
+      <% end %>
+    <% end %>
 
     <% @user.videos.each do |video| %>
-      <div class="col">
-        <div class="profile-thumbnail">
-          <p><%= video.name %></p>
-        </div>  
+      <div class="profile-thumbnail">
+        <p><%= video.name %></p>
       </div>
     <% end %>
 
   </div>
 </div>
-
-
 
 
