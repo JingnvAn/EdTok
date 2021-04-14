@@ -53,7 +53,9 @@
         <button class="following-button">Following</button>
       </div>
     <% end %>
-
+  
+  <% else %>
+    <%= link_to "Edit Profile", edit_user_path(current_user) %>
   <% end %>
 
   <p>
