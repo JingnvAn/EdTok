@@ -58,6 +58,10 @@ $theme-pink: rgb(230, 130, 163);
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+
+        a:hover {
+            background-color: transparent;
+        }
         
         .profile-thumbnail {
             margin: 30px;
@@ -71,10 +75,9 @@ $theme-pink: rgb(230, 130, 163);
                 vertical-align: middle;
                 line-height: 130px;
             }
-    
-            // Insert styling for the first video "Upload" box
             
         }
+
     }
 }
 

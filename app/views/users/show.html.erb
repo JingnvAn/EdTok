@@ -66,9 +66,14 @@
 <div id="profile-body">
   <div id="videos">
 
-    <div class="profile-thumbnail first">
-      <p>Upload</p>
-    </div>
+    <!-- Only show the upload icon if you're on your profile -->
+    <% if current_page?(profile_path) %>
+      <%= link_to upload_path do %>
+        <div class="profile-thumbnail first">
+          <p>Upload</p>
+        </div>
+      <% end %>
+    <% end %>
 
     <% @user.videos.each do |video| %>
       <div class="profile-thumbnail">
