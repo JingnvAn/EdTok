@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
   end
 
   # POST /users or /users.json
@@ -32,7 +33,8 @@ class UsersController < ApplicationController
       reset_session
       log_in @user
       flash[:success] = "Welcome #{@user.name}!"
-      redirect_to @user 
+      #redirect_to @user
+      redirect_to profile_url
     else 
       render 'new'
     end
@@ -70,6 +72,10 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def follow 
+    Follow.create(user_id: current_user.id, following_id: params[:id_for_follow])
   end
 
   private
