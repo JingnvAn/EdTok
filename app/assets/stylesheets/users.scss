@@ -22,7 +22,7 @@ $theme-pink: rgb(230, 130, 163);
         }
     }
 
-    .follow {
+    .button-section {
         padding-bottom: 25px;
 
         .follow-button {
@@ -42,6 +42,18 @@ $theme-pink: rgb(230, 130, 163);
             height: 40px;
             width: 120px;
             background-color: lightpink;
+            border: none;
+    
+            // Button text
+            color: rgb(54, 54, 54);
+            font-size: medium;
+        }
+
+        .edit-profile-button {
+            // Button box
+            height: 40px;
+            width: 120px;
+            background-color: rgb(228, 225, 225);
             border: none;
     
             // Button text
