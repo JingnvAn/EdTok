@@ -44,18 +44,19 @@
   <% if !current_page?(profile_path) %>
 
     <% if !current_user.following.find_by(id: @user.id) %>
-      <div class="follow">
-        <!-- <button>Follow</button> -->
-        <%= button_to "Follow", follow_path, params: {id_for_follow: @user.id}, method: :post, class: "follow-button"%>
+      <div class="button-section">
+        <%= button_to "Follow", follow_path, params: {id_for_follow: @user.id}, method: :post, class: "follow-button" %>
       </div>
     <% else %>
-      <div class="follow">
+      <div class="button-section">
         <button class="following-button">Following</button>
       </div>
     <% end %>
   
   <% else %>
-    <%= link_to "Edit Profile", edit_user_path(current_user) %>
+    <div class="button-section">
+      <%= button_to "Edit Profile", edit_user_path(current_user), method: :get, class: "edit-profile-button" %>
+    </div>
   <% end %>
 
   <p>
