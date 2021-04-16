@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#show'
   post '/follow', to: 'users#follow'
   get '/upload', to: 'videos#new'
+  get '/search', to: 'static_pages#explore'
 end
