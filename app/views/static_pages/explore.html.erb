@@ -1,5 +1,6 @@
 <% provide(:title, "Explore") %>
 <%= stylesheet_link_tag 'explore' %>
+<script type="text/script" src="EdTok/app/assets/stylesheets/explore.js"></script>
 <h1> Explore Videos </h1>
 
 <!-- HTML -->
@@ -7,16 +8,26 @@
 <body>
 
 <div class="sidebar">
-
-    <div>Subject 1</div>
-    <div>Subject 2</div>
-    <div>Subject 3</div>
-
+    
+    <br>
+    <br>
     <%= form_with url: search_path, method: :get, remote: true do |f|%>
         <%= f.label :Search_by_video_name %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, placeholder: 'Search' %>
         <%= f.submit 'search'%>
     <% end %>
+
+    <br>
+    <br>
+
+    <button class="dropdown-btn">Dropdown
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+        <a href="#1">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+    </div>
 
 </div>
 
@@ -24,8 +35,12 @@
 <!-- body content -->
 <%= button_to "show videos", videos_path, :method => "get" %>
 
-<%= render partial: "shared/flash"  %>
+<%= render partial: "shared/flash" %>
 
+<% if !@display_src.blank? %>
+    <video controls width="320" height="160" src="<%= @display_src %>"></video>
+<% end %>
 </div>
+
 
 </body>

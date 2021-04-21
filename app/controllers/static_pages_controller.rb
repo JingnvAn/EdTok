@@ -5,10 +5,10 @@ class StaticPagesController < ApplicationController
 
   def explore
     @video = Video.find_by(name: params[:name])
-    if @video.nil?
+    if @video.blank?
       flash.now[:novideo] = "Sorry, the video does not exist!"
     elsif 
-      @display = @video 
+      @display_src = @video.file
     end 
 
   end
