@@ -26,6 +26,7 @@ class VideosController < ApplicationController
     # name: params[:name], file: params[:file]
     respond_to do |format|
       if @video.save
+        current_user.videos << @video
         format.html { redirect_to @video, notice: "Video was successfully created." }
         format.json { render :show, status: :created, location: @video }
       else
