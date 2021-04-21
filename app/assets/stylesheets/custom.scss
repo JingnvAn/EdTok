@@ -178,6 +178,7 @@ h1.intro_title {
 
 
 /* forms */ 
+
 form {
 
   label {
@@ -186,6 +187,21 @@ form {
 
   .btn {
     margin-top: 15px;
+  }
+}
+
+.gravatar_edit {
+  padding-top: 20px;
+
+  a {
+    display: block;
+    font-weight: 600;
+    padding-bottom: 3px;
+  }
+
+  a:hover {
+    background-color: transparent;
+    color: black;
   }
 }
 
