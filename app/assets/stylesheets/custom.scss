@@ -64,27 +64,27 @@ p {
 
 /* header */
 
+/* header */
+
 #logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-
-  &:hover{
+    float: left;
+    margin-right: 10px;
+    font-size: 1.7em;
     color: #fff;
-    text-decoration: none;
+   
+    letter-spacing: -1px;
+    padding-top: 9px;
+    font-weight: bold;
+    &:hover{
+      color: #fff;
+      text-decoration: none;
+    }
   }
-}
-
-/* change nav bar background color */
-
-.navbar-inverse {
-  background-color: #23689b;
-  border-color: #23689b;
-}
+  /* change nav bar background color */
+  .navbar-inverse {
+    background-color: #23689b;
+    border-color: #23689b;
+  }
 
 /* footer */
 
@@ -178,6 +178,7 @@ h1.intro_title {
 
 
 /* forms */ 
+
 form {
 
   label {
@@ -186,6 +187,21 @@ form {
 
   .btn {
     margin-top: 15px;
+  }
+}
+
+.gravatar_edit {
+  padding-top: 20px;
+
+  a {
+    display: block;
+    font-weight: 600;
+    padding-bottom: 3px;
+  }
+
+  a:hover {
+    background-color: transparent;
+    color: black;
   }
 }
 
