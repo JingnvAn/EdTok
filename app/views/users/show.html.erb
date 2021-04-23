@@ -72,18 +72,30 @@
     <!-- Only show the upload icon if you're on your profile -->
     <% if current_page?(profile_path) %>
       <%= link_to upload_path do %>
-        <div class="profile-thumbnail first">
-          <p>Upload</p>
+        <div class="first">
+          <p>+</p>
         </div>
       <% end %>
     <% end %>
 
+
+    <% num_videos = 0 %>
     <% @user.videos.each do |video| %>
-      <div class="profile-thumbnail">
-        <p><%= video.name %></p>
-      </div>
+        <!-- Don't display the placehodlers -->
+        <% if !(video.name).include? "placeholder" %>
+            <%= link_to video do %>
+              <div class="profile-thumbnail">
+                  <video src="<%= video.file %>"></video>
+                  <% num_videos += 1 %>
+              </div>
+            <% end %>
+        <% end %>
     <% end %>
 
+    <!-- Add a handy message if the user hasn't uploaded any videos yet -->
+    <% if num_videos == 0 && !current_page?(profile_path) %>
+      <p>No videos yet!</p>
+    <% end %>
   </div>
 </div>
 

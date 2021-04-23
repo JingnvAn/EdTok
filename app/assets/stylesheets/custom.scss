@@ -196,12 +196,17 @@ form {
   a {
     display: block;
     font-weight: 600;
-    padding-bottom: 3px;
+    padding-bottom: 4px;
+    padding-left: 13px;
   }
 
   a:hover {
     background-color: transparent;
     color: black;
+  }
+
+  img {
+    border-radius: 50px;
   }
 }
 
