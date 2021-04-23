@@ -78,23 +78,23 @@
       <% end %>
     <% end %>
 
+
+    <% num_videos = 0 %>
     <% @user.videos.each do |video| %>
-
+        <!-- Don't display the placehodlers -->
         <% if !(video.name).include? "placeholder" %>
-        
             <%= link_to video do %>
-
               <div class="profile-thumbnail">
-                
                   <video src="<%= video.file %>"></video>
-                
+                  <% num_videos += 1 %>
               </div>
             <% end %>
-
-          
-
         <% end %>
+    <% end %>
 
+    <!-- Add a handy message if the user hasn't uploaded any videos yet -->
+    <% if num_videos == 0 && !current_page?(profile_path) %>
+      <p>No videos yet!</p>
     <% end %>
   </div>
 </div>
