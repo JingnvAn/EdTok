@@ -11,6 +11,7 @@ $theme-pink: rgb(230, 130, 163);
 
         img {
             border-radius: 50px;
+            height: 100px;
         }
     }
 
@@ -63,6 +64,10 @@ $theme-pink: rgb(230, 130, 163);
             // Button text
             color: rgb(54, 54, 54);
             font-size: medium;
+        }
+
+        .follow-button:hover {
+            background-color: rgb(207, 117, 147);
         }
 
         .edit-profile-button:hover {
