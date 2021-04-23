@@ -65,34 +65,56 @@ $theme-pink: rgb(230, 130, 163);
 }
 
 #profile-body {
-    
+
     #videos {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+    }
 
-        a:hover {
-            background-color: transparent;
-        }
-        
-        .profile-thumbnail {
-            margin: 30px;
-            height: 130px;
-            width: 250px;
+    a {
+        margin: 30px;
+
+        // First icon for uploading
+
+        .first {
+
             background-color: $theme-pink;
             border-radius: 20px;
-        
+            height: 300px;
+            width: 180px;
+            
+
             p {
                 text-align: center;
                 vertical-align: middle;
-                line-height: 130px;
+                line-height: 280px;
+                font-size: 150px;
+                color: whitesmoke;
+
+                
             }
-            
         }
 
+        .first:hover {
+            background-color: rgb(207, 117, 147);
+            border-radius: 20px;
+        }
+
+        // All other video thumbnails
+        .profile-thumbnail {
+            
+            video {
+                height: 300px;
+                //width: 250px;
+            }
+        }
     }
+
+    a:hover {
+        background-color: transparent;
+        text-decoration: none;
+    }
+
 }
-
-
-
 

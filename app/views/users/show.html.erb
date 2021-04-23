@@ -72,18 +72,30 @@
     <!-- Only show the upload icon if you're on your profile -->
     <% if current_page?(profile_path) %>
       <%= link_to upload_path do %>
-        <div class="profile-thumbnail first">
-          <p>Upload</p>
+        <div class="first">
+          <p>+</p>
         </div>
       <% end %>
     <% end %>
 
     <% @user.videos.each do |video| %>
-      <div class="profile-thumbnail">
-        <p><%= video.name %></p>
-      </div>
-    <% end %>
 
+        <% if !(video.name).include? "placeholder" %>
+        
+            <%= link_to video do %>
+
+              <div class="profile-thumbnail">
+                
+                  <video src="<%= video.file %>"></video>
+                
+              </div>
+            <% end %>
+
+          
+
+        <% end %>
+
+    <% end %>
   </div>
 </div>
 
