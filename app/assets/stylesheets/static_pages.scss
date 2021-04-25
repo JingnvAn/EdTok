@@ -4,6 +4,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.nav.navbar-nav.navbar-right {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: large;
+  // margin-top: 20px;
+}
+
+.navbar {
+  
+  margin: 0;
+  border: 0;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -18,6 +30,7 @@ body {
   }
   
   h1 {
+    
     font-size: 3em;
     letter-spacing: -2px;
     margin-bottom: 30px;
