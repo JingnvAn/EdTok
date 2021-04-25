@@ -14,7 +14,7 @@
               <li><%= link_to "Log out", logout_path, method: :delete %></li>
             <% else %>
               <li><%= link_to "Log in", login_path %></li>
-              <button class="btn btn-danger navbar-btn">Sign Up!</button>
+              <button class="btn navbar-btn" ><%= link_to "Sign Up", login_path %></button>
             <% end %>
           </ul>
         </nav>

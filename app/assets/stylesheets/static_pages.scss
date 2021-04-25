@@ -7,17 +7,34 @@
 .nav.navbar-nav.navbar-right {
   font-family: 'Josefin Sans', sans-serif;
   font-size: large;
-  // margin-top: 20px;
 }
 
-.navbar {
-  
-  margin: 0;
-  border: 0;
+.navbar-btn {
+  border-color: #ffdd76;
+  text-transform: uppercase;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 750;
+  color: #fff;
+  background-color: #ffdd76;
+  padding: 6px 12px !important;
+  margin: 8px 0px 0px 10px;
+}
+.navbar-btn:hover {
+  color: #FFF;
+  background-color: #f69918 !important;
+  border-color: #f69918 !important;
+}
+
+.btn-primary {
+  border-color: #f69918;
+  text-transform: uppercase;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  color: #fff;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     margin: 0;
   }
   
