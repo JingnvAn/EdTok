@@ -13,4 +13,3 @@ Turbolinks.start()
 ActiveStorage.start()
 
 
-

@@ -19,4 +19,12 @@ class StaticPagesController < ApplicationController
   def behind_the_scene
   end
 
+  def science
+  end 
+
+  def others
+  end 
+
+  def comic
+  end 
 end
