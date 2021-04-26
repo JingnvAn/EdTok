@@ -24,12 +24,13 @@
 
 <div id="wrapper" class="container">
     <div id="comments" class="comments">
-    <% @comments.each do |comment| %>
+    <% @comments.where(video_id: @video.id).each do |comment| %>
      <div class="col-6 offset-3">
       <div class="comment-wrap">
             <div class="photo">
                 <div class="avatar" style="background-image: url('http://res.cloudinary.com/yemiwebby-com-ng/image/upload/v1525202285/avatar_xcah9z.svg')"></div>
-            </div>        
+            </div>
+                   
             <div class="comment-block">
                 <p class="comment-text"><%= comment.text %></p>
                 <div class="bottom-comment">
@@ -44,5 +45,6 @@
     </div>
     <div class='col-6 offset-4 col-sm-4'>
       <%= render 'comment', comment: @comment %>
+      
     </div>
     </div>

@@ -10,6 +10,7 @@ class VideosController < ApplicationController
   def show
     @comments = Comment.all
     @comment = Comment.new
+    @users = User.all
     # render js: "alert('You are viewing video: #{params[:id]}')"
   end
 
