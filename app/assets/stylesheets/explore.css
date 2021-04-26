@@ -2,8 +2,10 @@
 .dropbtn {
 	background-color: #3498DB;
 	color: white;
-	padding: 16px;
-	font-size: 16px;
+	padding: auto;
+	height: auto;
+	width: 160px;
+	font-size: 20px;
 	border: none;
 	cursor: pointer;
   }
@@ -39,7 +41,9 @@
   }
   
   /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd}
+  .dropdown-content a:hover {
+	  background-color: #ddd
+}
 
 
 .show {
