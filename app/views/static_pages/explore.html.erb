@@ -1,11 +1,16 @@
 <% provide(:title, "Explore") %>
 <%= stylesheet_link_tag 'explore' %>
-<script type="text/script" src="EdTok/app/assets/stylesheets/explore.js"></script>
+<%= javascript_pack_tag "explore" %> 
+
+
+
 <h1> Explore Videos </h1>
 
 <!-- HTML -->
 
 <body>
+
+
 
 <div class="sidebar">
     
@@ -20,14 +25,16 @@
     <br>
     <br>
 
-    <button class="dropdown-btn">Dropdown
-        <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-container">
-        <a href="#1">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-    </div>
+    
+   <div class="dropdown">
+		<button onclick='myClick()' class="dropbtn">Dropdown</button>
+		<div id="myDropdown" class="dropdown-content">
+			<a><%= link_to "Science", Video %></a>
+			<a><%= link_to "Comic", Video %></a>
+			<a><%= link_to "Others`", Video %></a>
+		</div>
+	</div>
+
 
 </div>
 
