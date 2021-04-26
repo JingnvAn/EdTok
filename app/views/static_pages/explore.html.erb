@@ -29,9 +29,9 @@
    <div class="dropdown">
 		<button onclick='myClick()' class="dropbtn">Dropdown</button>
 		<div id="myDropdown" class="dropdown-content">
-			<a><%= link_to "Science", Video %></a>
-			<a><%= link_to "Comic", Video %></a>
-			<a><%= link_to "Others`", Video %></a>
+            <a><%= link_to "Science", :controller => :static_pages, :action => :science %></a>
+			<a><%= link_to "Comic", :controller => :static_pages, :action => :comic %></a>
+			<a><%= link_to "Others", :controller => :static_pages, :action => :others %></a>
 		</div>
 	</div>
 

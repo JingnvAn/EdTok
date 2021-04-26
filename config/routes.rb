@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   post '/follow', to: 'users#follow'
   get '/upload', to: 'videos#new'
   get '/search', to: 'static_pages#explore'
+  get '/science', to: 'static_pages#science'
+  get '/comic', to: 'static_pages#comic'
+  get '/others', to: 'static_pages#others'
 end
