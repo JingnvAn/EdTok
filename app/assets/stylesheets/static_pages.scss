@@ -4,6 +4,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.home-title {
+  font-size: 5em;
+  font-family: 'Dancing Script', cursive;
+}
+
 .gradient {
   /* fallback for old browsers */
   background: #89f7fe;
@@ -14,9 +19,9 @@
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background: linear-gradient(to right, rgba(137, 247, 254, 0.5), rgba(102, 166, 255, 0.5))
 }
-section{
-  margin-top: -200px;
-}
+// section{
+//   margin-top: -200px;
+// }
 section .wave {
   position: absolute;
   bottom: 0;
@@ -33,6 +38,7 @@ section .wave.wave1 {
   opacity: 0.8;
   animation-delay: 0s;
   bottom: 0;
+  position: fixed;
 }
 
 section .wave.wave2 {
@@ -40,8 +46,9 @@ section .wave.wave2 {
   z-index: 999;
   opacity: 0.5;
   animation-delay: -5s;
-  // bottom: 10px;
-  bottom: 0;
+  bottom: 10px;
+  // bottom: 0;
+  position: fixed;
 }
 
 section .wave.wave3 {
@@ -49,8 +56,9 @@ section .wave.wave3 {
   z-index: 998;
   opacity: 0.2;
   animation-delay: -2s;
-  // bottom: 15;
-  bottom: 0;
+  bottom: 15;
+  // bottom: 0;
+  position: fixed;
 }
 
 section .wave.wave4 {
@@ -58,8 +66,9 @@ section .wave.wave4 {
   z-index: 997;
   opacity: 0.6;
   animation-delay: -5s;
-  // bottom: 20px;
-  bottom: 0;
+  bottom: 20px;
+  // bottom: 0;
+  position: fixed;
 }
 
 @keyframes animate {
@@ -128,15 +137,7 @@ body {
   *, *:before, *:after {
     box-sizing: inherit;
   }
-  
-  h1 {
-    
-    font-size: 3em;
-    letter-spacing: -2px;
-    margin-bottom: 30px;
-    text-align: center;
-    font-family: 'Josefin Sans', sans-serif;
-  }
+
 
   .column {
     float: left;
