@@ -8,6 +8,8 @@ class VideosController < ApplicationController
 
   # GET /videos/1 or /videos/1.json
   def show
+    @comments = Comment.all
+    @comment = Comment.new
     # render js: "alert('You are viewing video: #{params[:id]}')"
   end
 
