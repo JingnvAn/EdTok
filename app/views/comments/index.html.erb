@@ -1,27 +1,28 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Comments</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Text</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div id="wrapper" class="container">
+    <div class="text-center">
+      <h1>Sample post</h1>
+      <p>This is an interesting sample post for Pusher </p>
+    </div>
+    <div id="comments" class="comments">
     <% @comments.each do |comment| %>
-      <tr>
-        <td><%= comment.text %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+     <div class="col-6 offset-3">
+      <div class="comment-wrap">
+            <div class="photo">
+                <div class="avatar" style="background-image: url('http://res.cloudinary.com/yemiwebby-com-ng/image/upload/v1525202285/avatar_xcah9z.svg')"></div>
+            </div>        
+            <div class="comment-block">
+                <p class="comment-text"><%= comment.text %></p>
+                <div class="bottom-comment">
+                    <ul class="comment-actions">
+                        <li class="show"><%= link_to 'Show', comment %></li>
+                    </ul>
+                </div>
+            </div>
+      </div>
+    </div>  
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Comment', new_comment_path %>
+    </div>
+    <div class='col-6 offset-4 col-sm-4'>
+      <%= render 'form', comment: @comment %>
+    </div>
+    </div>
