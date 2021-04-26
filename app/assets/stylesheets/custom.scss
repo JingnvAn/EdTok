@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+// @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 /* universal */
 
@@ -46,13 +47,13 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  font-family: 'Indie Flower', cursive;
 }
 
 h2 {
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
-  text-align: center;
   font-weight: normal;
   color: #777;
 }
@@ -64,27 +65,24 @@ p {
 
 /* header */
 
+/* header */
+
 #logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-
-  &:hover{
+    float: left;
+    margin-right: 10px;
+    font-size: 1.7em;
     color: #fff;
-    text-decoration: none;
+   
+    letter-spacing: -1px;
+    padding-top: 9px;
+    font-weight: bold;
+    &:hover{
+      color: #fff;
+      text-decoration: none;
+    }
   }
-}
+  
 
-/* change nav bar background color */
-
-.navbar-inverse {
-  background-color: #23689b;
-  border-color: #23689b;
-}
 
 /* footer */
 
@@ -92,7 +90,6 @@ footer {
   background-color: #8ac4d0;
   /* height: 50px; */
   width: 100%;
-  position:fixed;
   left:0;
   right:0;
   bottom:0%; 

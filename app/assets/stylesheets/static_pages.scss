@@ -4,8 +4,117 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.gradient {
+  /* fallback for old browsers */
+  background: #89f7fe;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(137, 247, 254, 0.5), rgba(102, 166, 255, 0.5));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(137, 247, 254, 0.5), rgba(102, 166, 255, 0.5))
+}
+section{
+  margin-top: -200px;
+}
+section .wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(wave.png);
+  background-size: 1000px 100px;
+}
+
+section .wave.wave1 {
+  animation: animate 30s linear infinite;
+  z-index: 1000;
+  opacity: 1;
+  animation-delay: 0s;
+  bottom: 0;
+}
+
+section .wave.wave2 {
+  animation: animate2 15s linear infinite;
+  z-index: 999;
+  opacity: 0.5;
+  animation-delay: -5s;
+  bottom: 10px;
+}
+
+section .wave.wave3 {
+  animation: animate 30s linear infinite;
+  z-index: 998;
+  opacity: 0.2;
+  animation-delay: -2s;
+  bottom: 15;
+}
+
+section .wave.wave4 {
+  animation: animate2 10s linear infinite;
+  z-index: 997;
+  opacity: 0.7;
+  animation-delay: -5s;
+  bottom: 20px;
+}
+
+@keyframes animate {
+  0%{
+    background-position-x: 0;
+  }
+  100%{
+    background-position-x: 1000px;
+  }
+}
+
+@keyframes animate2 {
+  0%{
+    background-position-x: 0;
+  }
+  100%{
+    background-position-x: -1000px;
+  }
+}
+
+
+.nav.navbar-nav.navbar-right {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: large;
+}
+
+.navbar-btn {
+  border-color: #ffdd76;
+  text-transform: uppercase;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 750;
+  color: #fff;
+  background-color: #ffdd76;
+  padding: 6px 12px !important;
+  margin: 8px 0px 0px 10px;
+}
+.navbar-btn:hover {
+  color: #FFF;
+  background-color: #f69918 !important;
+  border-color: #f69918 !important;
+}
+
+.btn-primary {
+  border-color: #f69918;
+  text-transform: uppercase;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  color: #fff;
+}
+
+.vl {
+  border-left: 3px solid grey;
+  height: 150px;
+  margin-left: 15%;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     margin: 0;
   }
   
@@ -17,6 +126,14 @@ body {
     box-sizing: inherit;
   }
   
+  h1 {
+    
+    font-size: 3em;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+  }
 
   .column {
     float: left;
