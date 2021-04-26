@@ -14,7 +14,7 @@
     <% @videos.each do |video| %>
       <tr>
         <td><%= video.name %></td>
-        <td><%= link_to 'Show', video %></td>
+        <td><%= link_to 'Show', video%></td>
         <td><%= link_to 'Edit', edit_video_path(video) %></td>
         <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
       </tr>

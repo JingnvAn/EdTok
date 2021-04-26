@@ -1,7 +1,12 @@
 
+<<<<<<< HEAD
 <header class="navbar navbar-fixed-top navbar-inverses">
+=======
+<header class="navbar navbar-inverses">
+>>>>>>> 91340f7361ccaf2ffb3061d28d82ee2d06622def
       <div class="container">
-        <%= link_to "EdTok", '#', id: "logo" %>
+         <%= link_to image_tag("edtok_logo.png", alt: "home_bg.png", width: "134.8", height: "38"), '#', id: "logo" %>
+        
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home", home_path %></li>
@@ -13,7 +18,7 @@
               <li><%= link_to "Log out", logout_path, method: :delete %></li>
             <% else %>
               <li><%= link_to "Log in", login_path %></li>
-              <li><%= link_to "Sign up!", signup_path %></li>
+              <button class="btn navbar-btn" ><%= link_to "Sign Up", login_path %></button>
             <% end %>
           </ul>
         </nav>
