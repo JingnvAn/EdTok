@@ -4,23 +4,22 @@
    <h1><%= @video.name %></h1>
 </p>
 
-<p>
-  <video controls width="640" height="480" class ="center" src="<%= @video.file %>"></video>
-</p>
+<div>
+  <video controls  class= "media" src="<%= @video.file %>"></video>
+</div>
 
 
 <div class="rightside">
   <h2>Implement like here<h2> |
   <%= link_to 'Back', videos_path %>
 </div>
-
-
-
-<div class="leftside">
-<h2>Implement like here<h2>|
-<%= link_to 'Back', videos_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">col-sm-8
+    </div>
+    <div class="col-sm-4">col-sm-4</div>
+  </div>
 </div>
-
 
 <div id="wrapper" class="container">
     <div id="comments" class="comments">
@@ -30,12 +29,11 @@
             <div class="photo">
                 <div class="avatar" style="background-image: url('http://res.cloudinary.com/yemiwebby-com-ng/image/upload/v1525202285/avatar_xcah9z.svg')"></div>
             </div>
-                   
             <div class="comment-block">
-                <p class="comment-text"><%= comment.text %></p>
+                <p class="comment-text"><%= "#{@users.where(id: comment.user_id).first.name}:\n #{comment.text}" %></p>
                 <div class="bottom-comment">
                     <ul class="comment-actions">
-                        <li class="show"><%= link_to 'Show', comment %></li>
+                        <li class="show"><%= link_to @users.where(id: comment.user_id).first.name, comment %></li>
                     </ul>
                 </div>
             </div>
@@ -45,6 +43,5 @@
     </div>
     <div class='col-6 offset-4 col-sm-4'>
       <%= render 'comment', comment: @comment %>
-      
     </div>
     </div>
