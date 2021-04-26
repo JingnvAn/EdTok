@@ -95,3 +95,9 @@ group :jekyll_plugins do
   gem "jekyll-feed"
   gem "jekyll-seo-tag"
 end
+
+
+
+gem "redis", "~> 4.2"
+gem "cable_ready", "~> 4.5"
+gem "stimulus_reflex", "~> 3.4"

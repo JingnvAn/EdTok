@@ -1,16 +1,48 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @video.name %>
+   <h1><%= @video.name %></h1>
 </p>
 
 <p>
-  <strong>File:</strong>
-  <video controls width="640" height="480" src="<%= @video.file %>"></video>
+  <video controls width="640" height="480" class ="center" src="<%= @video.file %>"></video>
 </p>
 
+
+<div class="rightside">
+  <h2>Implement like here<h2> |
+  <%= link_to 'Back', videos_path %>
+</div>
+
+
+
 <div class="leftside">
-<%= link_to 'Edit', edit_video_path(@video) %> |
+<h2>Implement like here<h2>|
 <%= link_to 'Back', videos_path %>
 </div>
+
+
+<div id="wrapper" class="container">
+    <div id="comments" class="comments">
+    <% @comments.each do |comment| %>
+     <div class="col-6 offset-3">
+      <div class="comment-wrap">
+            <div class="photo">
+                <div class="avatar" style="background-image: url('http://res.cloudinary.com/yemiwebby-com-ng/image/upload/v1525202285/avatar_xcah9z.svg')"></div>
+            </div>        
+            <div class="comment-block">
+                <p class="comment-text"><%= comment.text %></p>
+                <div class="bottom-comment">
+                    <ul class="comment-actions">
+                        <li class="show"><%= link_to 'Show', comment %></li>
+                    </ul>
+                </div>
+            </div>
+      </div>
+    </div>  
+    <% end %>
+    </div>
+    <div class='col-6 offset-4 col-sm-4'>
+      <%= render 'comment', comment: @comment %>
+    </div>
+    </div>

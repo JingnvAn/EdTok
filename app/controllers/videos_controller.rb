@@ -8,6 +8,8 @@ class VideosController < ApplicationController
 
   # GET /videos/1 or /videos/1.json
   def show
+    @comments = Comment.all
+    @comment = Comment.new
     # render js: "alert('You are viewing video: #{params[:id]}')"
   end
 
@@ -66,5 +68,10 @@ class VideosController < ApplicationController
     # Only allow a list of trusted parameters through.
     def video_params
       params.require(:video).permit(:name, :file)
+    end
+
+    # Only allow a list of trusted parameters through.
+    def comment_params
+      params.require(:comment).permit(:text)
     end
 end
