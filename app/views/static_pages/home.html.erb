@@ -1,37 +1,20 @@
 <% provide(:title, "Home") %>
 
  <p>
-  <h1>Short videos,<br> Redefinde learning.</h1>
- <%= image_tag("home_bg.png", alt: "home_bg.png", width: "920", height: "584", class: "center")  %>
- <h1>Knowledage Sharing,<br>  Anywhere, Anytime.</h1>
- 
+    <div class="center">
+        <h1>Short videos, <br>Redefinde learning.</h1>
+    </div>
+    <%= image_tag("home_bg.png", alt: "home_bg.png", style: "height:78%;width:78%;", class: "center")  %>
+            
+    <div class="gradient">
+        
+        <section> 
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </section>
+    </div>
 
-   
-<div class="left">
-    <%= image_tag "home_bg.png", alt: "home_bg.png", width: "204", height: "114"%>
-    <h1 class = "intro_title">titile</h1>
-    <p style="position:relative; left:160px;"> 
-        place holder     place holder <br/>
-        place holder     place holder <br/>
-        place holder     place holder <br/>
-    </p>
-</div>
-
-<div class="right">
-    <h1 class = "intro_title">titile</h1>
-    <%= image_tag "home_bg.png", alt: "home_bg.png", width: "204", height: "114"%>
-    <p style="position:relative; right:160px;"> 
-        place holder     place holder <br/>
-        place holder     place holder <br/>
-        place holder     place holder <br/>
-    </p>
-</div>
-
-<div class="center">
-
-<button class="btn navbar-btn"type="button"> 
-    <%= link_to "Sign up!", signup_path %>
-</button>
-</div>
 
 </p>
