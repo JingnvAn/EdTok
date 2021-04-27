@@ -43,11 +43,11 @@
     <br>
     <br>
 
-    
+   <!-- dropdown button with js code-->    
    <div class="dropdown">
 		<button onclick='myClick()' class="dropbtn">Dropdown</button>
 		<div id="myDropdown" class="dropdown-content">
-            <a><%= link_to "Science", :controller => :static_pages, :action => :science %></a>
+            <a><%= link_to "Science", :controller => :static_pages, :action => :science, remote: true %></a>
 			<a><%= link_to "Comic", :controller => :static_pages, :action => :comic %></a>
 			<a><%= link_to "Others", :controller => :static_pages, :action => :others %></a>
 		</div>
@@ -60,7 +60,15 @@
 <!-- body content -->
 <%= button_to "show videos", videos_path, :method => "get" %>
 
+
+
 <%= render partial: "shared/flash" %>
+
+<% if @videoNum >= 1 %>
+    <% @files.each { |file| %>
+    <video controls width="320" height="160" src="<%= file %>"></video>
+    <% } %>
+<% end %>
 
 <% if !@display_src.blank? %>
     <video controls width="320" height="160" src="<%= @display_src %>"></video>
