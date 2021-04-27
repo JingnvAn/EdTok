@@ -9,6 +9,9 @@ class Video < ApplicationRecord
     has_many :responses
     has_many :comments, through: :responses
 
+    has_many :uploads
+    has_many :users, through: :uploads
+
     mount_uploader :file, VideoUploader
     # process_in_background :video
 
