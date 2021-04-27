@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     if @user.save
       reset_session
       log_in @user
-      flash[:success] = "Welcome #{@user.name}!"
+      flash[:success] = "Welcome #{@user.username}!"
       redirect_to profile_url
     else 
       render 'new'
