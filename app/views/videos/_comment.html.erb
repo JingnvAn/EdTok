@@ -14,12 +14,12 @@
   <div class="field">
     <%= form.label :comment %>
     <%= form.text_area :text, id: :comment_text, placeholder: "Enter your comments", class: "form-control" %>
-
+    <%= form.hidden_field :video_id, value: @video.id%>
+    <%= form.hidden_field :user_id, value: current_user.id%>
   </div>
    
     <h1><%= @comment.id %></h1>
   <div class="actions">
-    <%= form.submit 'Add comment', params: {id_for_follow: @video.id}, class: "btn btn-success"%>
-    
+    <%= form.submit 'Add comment', class: "btn btn-success"%>
   </div>
 <% end %>
