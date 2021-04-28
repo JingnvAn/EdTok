@@ -49,3 +49,16 @@
 .show {
 	display:block;
 } 
+
+
+.video-display {	
+	margin: auto;
+	width: auto;
+	padding-top: 60px;
+
+}
+
+#search-video{
+	padding-top: 120px;
+	padding-left: 20%;
+}

@@ -21,9 +21,8 @@
 }
 </script>
 
+
 <body>
-
-
 
     <div class="sidebar">
         
@@ -51,9 +50,13 @@
 
     </div>
 
-    <% @selected.each { |video| %>
-        <video controls width="320" height="160" src="<%= video.file %>"></video>
-        <%= link_to 'Show', video %>
-    <% } %>
+    <h1>Science Section</h1>
 
+    <div class= 'video-display'>
+        <% @selected.each { |video| %>
+            <video controls width="320" height="160" src="<%= video.file %>"></video>
+            <%= link_to 'Show', video %>
+            &nbsp &nbsp &nbsp
+        <% } %>
+    </div>
 </body>

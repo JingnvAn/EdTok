@@ -26,8 +26,6 @@
 
 <body>
 
-
-
 <div class="sidebar">
     
     <br>
@@ -43,7 +41,7 @@
 
    <!-- dropdown button with js code-->    
    <div class="dropdown">
-		<button onclick='myClick()' class="dropbtn">Dropdown</button>
+		<button onclick='myClick()' class="dropbtn">Subjects</button>
 		<div id="myDropdown" class="dropdown-content">
             <a><%= link_to "Science", :controller => :static_pages, :action => :science %></a>
 			<a><%= link_to "Comic", :controller => :static_pages, :action => :comic %></a>
@@ -54,6 +52,8 @@
 
 <!--here is the body display -->
 
+<br>
+<br>
 <div class="body-text">
 
     <!-- flash notice if there is no video matches -->
@@ -63,14 +63,16 @@
         <% @videos.each { |video| %>
         <video controls width="320" height="160" src="<%= video.file %>"></video> 
         <%= link_to 'Show', video %>
+        &nbsp &nbsp &nbsp &nbsp &nbsp
         <% } %>
     <% end %>
 
-    <% if !@display_src.blank? %>
-        <video controls width="320" height="160" src="<%= @display_src.file %>"></video>
-        <%= link_to 'Show', @display_src %>
-    <% end %>
-
+    <div id="search-video">
+        <% if !@display_src.blank? %>
+            <video controls width="500" height="320" src="<%= @display_src.file %>"></video>
+            <%= link_to 'Show', @display_src %>
+        <% end %>
+    </div>
 
 
 </div>
