@@ -55,6 +55,7 @@
     <div class= 'video-display'>
         <% @selected.each { |video| %>
             <video controls width="320" height="160" src="<%= video.file %>"></video>
+            <%= video.name %>
             <%= link_to 'Show', video %>
             &nbsp &nbsp &nbsp
         <% } %>

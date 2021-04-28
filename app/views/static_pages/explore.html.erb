@@ -61,7 +61,8 @@
 
     <% if @videoNum >= 1 %>
         <% @videos.each { |video| %>
-        <video controls width="320" height="160" src="<%= video.file %>"></video> 
+        <video controls width="280" height="160" src="<%= video.file %>"></video> 
+        <%= video.name %>
         <%= link_to 'Show', video %>
         &nbsp &nbsp &nbsp &nbsp &nbsp
         <% } %>
@@ -70,6 +71,7 @@
     <div id="search-video">
         <% if !@display_src.blank? %>
             <video controls width="500" height="320" src="<%= @display_src.file %>"></video>
+            <%= @display_src.name %> 
             <%= link_to 'Show', @display_src %>
         <% end %>
     </div>
