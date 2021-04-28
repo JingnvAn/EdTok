@@ -22,8 +22,6 @@
 </script>
 
 
-<h1> Explore Videos </h1>
-
 <!-- HTML -->
 
 <body>
@@ -52,26 +50,25 @@
 			<a><%= link_to "Others", :controller => :static_pages, :action => :others%></a>
 		</div>
 	</div>
-
-
 </div>
 
+<!--here is the body display -->
+
 <div class="body-text">
-    <!-- body content -->
-    <%= button_to "show videos", videos_path, :method => "get" %>
 
-
-
+    <!-- flash notice if there is no video matches -->
     <%= render partial: "shared/flash" %>
 
     <% if @videoNum >= 1 %>
-        <% @files.each { |file| %>
-        <video controls width="320" height="160" src="<%= file %>"></video>
+        <% @videos.each { |video| %>
+        <video controls width="320" height="160" src="<%= video.file %>"></video> 
+        <%= link_to 'Show', video %>
         <% } %>
     <% end %>
 
     <% if !@display_src.blank? %>
-        <video controls width="320" height="160" src="<%= @display_src %>"></video>
+        <video controls width="320" height="160" src="<%= @display_src.file %>"></video>
+        <%= link_to 'Show', @display_src %>
     <% end %>
 
 

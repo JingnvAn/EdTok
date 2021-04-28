@@ -7,11 +7,7 @@ class StaticPagesController < ApplicationController
     if params[:name].nil?
       @videoNum = Video.count
       if @videoNum != 0
-        @files = Array.new
-        videos = Video.all
-        videos.each { |video|
-           @files.push(video.file)
-        }
+        @videos = Video.all
       else
         flash.now[:novideo] = "Sorry, there is no video!"
       end
@@ -22,7 +18,7 @@ class StaticPagesController < ApplicationController
       if @video.blank?
         flash.now[:novideo] = "Sorry, the video does not exist!"
       elsif 
-        @display_src = @video.file
+        @display_src = @video
       end   
     end
     
@@ -46,5 +42,5 @@ class StaticPagesController < ApplicationController
   def comic
     @selected = Video.where(subject: 'comic')
   end 
-  
+
 end

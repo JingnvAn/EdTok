@@ -1,4 +1,4 @@
-<% provide(:title, "Explore") %>
+<% provide(:title, "Comic") %>
 <%= stylesheet_link_tag 'explore' %>
 
 <!-- javascript code here  -->
@@ -51,6 +51,7 @@
 
     <% @selected.each { |video| %>
         <video controls width="320" height="160" src="<%= video.file %>"></video>
+        <%= link_to 'Show', video %>
     <% } %>
 
 
