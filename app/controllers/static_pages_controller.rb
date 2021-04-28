@@ -36,11 +36,26 @@ class StaticPagesController < ApplicationController
   end
 
   def science
+    @selected = Video.where(subject: 'science')
+    respond_to do |format|
+      format.html {render :explore}
+      format.js {render :science}
+    end
   end 
 
   def others
+    @selected = Video.where(subject: 'others')
+    respond_to do |format|
+      format.html {render :explore}
+      format.js {render :others}
+    end
   end 
 
   def comic
+    @selected = Video.where(subject: 'comic')
+    respond_to do |format|
+      format.html {render :explore}
+      format.js {render :comic}
+    end
   end 
 end

@@ -17,6 +17,10 @@
   </div>
 
   <div class="field">
+    <%= form.select :subject, ["science", "comic", "others"] %>
+  </div>
+
+  <div class="field">
     <%= form.label :file %>
     <%= form.file_field :file, id: :video_file %>
   </div>
