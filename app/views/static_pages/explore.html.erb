@@ -47,9 +47,9 @@
    <div class="dropdown">
 		<button onclick='myClick()' class="dropbtn">Dropdown</button>
 		<div id="myDropdown" class="dropdown-content">
-            <a><%= link_to "Science", :controller => :static_pages, :action => :science, remote: true %></a>
-			<a><%= link_to "Comic", :controller => :static_pages, :action => :comic, remote: true %></a>
-			<a><%= link_to "Others", :controller => :static_pages, :action => :others, remote: true %></a>
+            <a><%= link_to "Science", :controller => :static_pages, :action => :science %></a>
+			<a><%= link_to "Comic", :controller => :static_pages, :action => :comic %></a>
+			<a><%= link_to "Others", :controller => :static_pages, :action => :others%></a>
 		</div>
 	</div>
 
@@ -74,10 +74,9 @@
         <video controls width="320" height="160" src="<%= @display_src %>"></video>
     <% end %>
 
-    
+
 
 </div>
 
-<p id='test'> hello </p>
 
 </body>

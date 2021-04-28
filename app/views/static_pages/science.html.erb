@@ -1,0 +1,56 @@
+<% provide(:title, "Explore") %>
+<%= stylesheet_link_tag 'explore' %>
+
+<!-- javascript code here  -->
+<script type='text/javascript'>
+    function myClick(){
+    document.getElementById('myDropdown').classList.toggle('show');
+}
+
+    window.onclick = function(event){
+	if (!event.target.matches('.dropbtn')){
+		var dropdowns = document.getElementsByClassName('dropdown-content');
+		var i;
+		for(i=0; i<dropdowns.length; i++){
+			var openDropdown = dropdowns[i];
+			if(openDropdown.classList.contains('show')){
+				openDropdown.classList.remove('show');
+			}
+		}
+	}
+}
+</script>
+
+<body>
+
+
+
+    <div class="sidebar">
+        
+        <br>
+        <br>
+        <%= form_with url: search_path, method: :get, remote: true do |f|%>
+            <%= f.label :Search_by_video_name %>
+            <%= f.text_field :name, placeholder: 'Search' %>
+            <%= f.submit 'search'%>
+        <% end %>
+
+        <br>
+        <br>
+
+    <!-- dropdown button with js code-->    
+    <div class="dropdown">
+            <button onclick='myClick()' class="dropbtn">Dropdown</button>
+            <div id="myDropdown" class="dropdown-content">
+                <a><%= link_to "Science", :controller => :static_pages, :action => :science %></a>
+                <a><%= link_to "Comic", :controller => :static_pages, :action => :comic %></a>
+                <a><%= link_to "Others", :controller => :static_pages, :action => :others%></a>
+            </div>
+        </div>
+
+
+    </div>
+
+    <%= @selected %>
+
+</body>
