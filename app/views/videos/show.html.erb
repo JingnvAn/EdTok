@@ -1,47 +1,74 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-   <h1><%= @video.name %></h1>
-</p>
 
 <div>
-  <video controls  class= "media" src="<%= @video.file %>"></video>
+  <video controls  class= "video" src="<%= @video.file %>"></video>
 </div>
 
-
-<div class="rightside">
-  <h2>Implement like here<h2> |
-  <%= link_to 'Back', videos_path %>
-</div>
 <div class="container">
-  <div class="row">
-    <div class="col-sm-8">col-sm-8
+  <div class="row g-4">
+    <div class="col-sm-8">
+      <h3><%= @video.name %></h3>
     </div>
-    <div class="col-sm-4">col-sm-4</div>
+    <div class="col-sm-4">
+      <h4><%= @video.users.first.name%></h4>
+      <h4><p>12</p></h4>
+    </div>
+  </div>
+
+  <div class="profile-img">
+    <%= gravatar_for @video.users.first %>
   </div>
 </div>
 
-<div id="wrapper" class="container">
-    <div id="comments" class="comments">
-    <% @comments.where(video_id: @video.id).each do |comment| %>
-     <div class="col-6 offset-3">
-      <div class="comment-wrap">
-            <div class="photo">
-                <div class="avatar" style="background-image: url('http://res.cloudinary.com/yemiwebby-com-ng/image/upload/v1525202285/avatar_xcah9z.svg')"></div>
+<section class="content-item" id="comments">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <fieldset>
+          <div class="row g-2">
+            <%= form_with(model: @comment) do |form| %>
+              <% if @comment.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+                  <ul>
+                    <% @comment.errors.each do |error| %>
+                      <li><%= error.full_message %></li>
+                    <% end %>
+                  </ul>
+              </div>
+              <% end %>
+            
+              <% if current_user %>
+              <div class="col-sm-9 ">
+                <%= form.text_area :text, id: :comment_text, placeholder: "Enter your comments", class: "form-control"%>
+                <%= form.hidden_field :video_id, value: @video.id%>
+                <%= form.hidden_field :user_id, value: current_user.id%>
+              </div> 
+              <div class="col-sm-2">
+                <%= form.submit 'Add comment', class: "btn btn-success"%>
+              </div>  	 	
+              <% end %>
+
+
+              <p id="notice"><%= notice %></p>
+            <% end %>
+          </div>  
+        </fieldset>
+  
+
+      
+
+        <% @comments.where(video_id: @video.id).each do |comment| %>
+        <div class="media">
+          <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
+          <div class="media-body">
+            <h4 class="media-heading"><%= link_to @users.where(id: comment.user_id).first.name, @users.where(id: comment.user_id).first %></h4>
+                          <p><%= comment.text %></p>
             </div>
-            <div class="comment-block">
-                <p class="comment-text"><%= "#{@users.where(id: comment.user_id).first.name}:\n #{comment.text}" %></p>
-                <div class="bottom-comment">
-                    <ul class="comment-actions">
-                        <li class="show"><%= link_to @users.where(id: comment.user_id).first.name, comment %></li>
-                    </ul>
-                </div>
-            </div>
+
+
+        </div>
+        <% end %>
       </div>
     </div>  
-    <% end %>
-    </div>
-    <div class='col-6 offset-4 col-sm-4'>
-      <%= render 'comment', comment: @comment %>
-    </div>
-    </div>
+  </div>
+</section>

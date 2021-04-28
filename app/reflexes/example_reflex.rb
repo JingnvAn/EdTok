@@ -32,4 +32,7 @@ class ExampleReflex < ApplicationReflex
   #
   # Learn more at: https://docs.stimulusreflex.com/reflexes#reflex-classes
 
+  def form
+    @comment = Comment.new(text: element[:value])
+  end
 end
