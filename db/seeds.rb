@@ -28,7 +28,7 @@ end
 User.all.each do |user|
     3.times do 
         vid_name = "#{user.name}'s placeholder"
-        user.videos << Video.create(name: vid_name)
+        user.videos << Video.create(name: vid_name, subject: "Test")
     end
 end 
 
