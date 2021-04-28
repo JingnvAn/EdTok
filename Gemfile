@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
-
+##
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3.1'
 # Use postgresql as the database for Active Record
@@ -25,6 +25,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'image_processing', '~> 1.2'
 # allow video upload
 # gem 'carrierwave', '~> 2.0'
+gem 'rails-controller-testing'
 
 # gemfile to solve mimemagic problem
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
@@ -36,7 +37,9 @@ gem 'carrierwave_backgrounder'
 gem 'streamio-ffmpeg'
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 
-
+#gemfile to store video in aws
+gem "figaro"
+gem "fog-aws"
 
 # Delayed job used by carrierwave_backgrounder
 gem 'delayed_job_active_record'
@@ -51,7 +54,6 @@ gem 'awesome_print'
 gem 'faker'
 # Hirb.enable displays nice database schema and entries in ASCII table
 gem 'hirb'
-gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -93,3 +95,9 @@ group :jekyll_plugins do
   gem "jekyll-feed"
   gem "jekyll-seo-tag"
 end
+
+
+
+gem "redis", "~> 4.2"
+gem "cable_ready", "~> 4.5"
+gem "stimulus_reflex", "~> 3.4"

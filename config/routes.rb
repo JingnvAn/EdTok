@@ -18,4 +18,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/profile', to: 'users#show'
+  post '/follow', to: 'users#follow'
+  get '/upload', to: 'videos#new'
+  get '/search', to: 'static_pages#explore'
+  get '/science', to: 'static_pages#science'
+  get '/comic', to: 'static_pages#comic'
+  get '/others', to: 'static_pages#others'
 end

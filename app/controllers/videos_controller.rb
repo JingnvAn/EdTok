@@ -8,6 +8,10 @@ class VideosController < ApplicationController
 
   # GET /videos/1 or /videos/1.json
   def show
+    @comments = Comment.all
+    @comment = Comment.new
+    @users = User.all
+    # render js: "alert('You are viewing video: #{params[:id]}')"
   end
 
   # GET /videos/new
@@ -18,13 +22,13 @@ class VideosController < ApplicationController
   # GET /videos/1/edit
   def edit
   end
-
+ 
   # POST /videos or /videos.json
   def create
     @video = Video.new(video_params)
-    # name: params[:name], file: params[:file]
     respond_to do |format|
       if @video.save
+        current_user.videos << @video
         format.html { redirect_to @video, notice: "Video was successfully created." }
         format.json { render :show, status: :created, location: @video }
       else
@@ -56,6 +60,11 @@ class VideosController < ApplicationController
     end
   end
 
+  #Allow user to follow video provider in the video show page
+  def follow 
+    Follow.create(user_id: current_user.id, following_id: params[:id_for_follow])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_video
@@ -64,7 +73,11 @@ class VideosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def video_params
-      #puts "********* #{params} ************"
-      params.require(:video).permit(:name, :file)
+      params.require(:video).permit(:name, :file, :subject)
+    end
+
+    # Only allow a list of trusted parameters through.
+    def comment_params
+      params.require(:comment).permit(:text)
     end
 end

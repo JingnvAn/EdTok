@@ -1,3 +1,226 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+
+
+
+
+body {
+ font-family: 'Josefin Sans', sans-serif;
+}
+.navbar-brand {
+  color: #FFF !important;
+  &:hover {
+    background-color: unset;
+  }
+}
+.form-control {
+  outline: none !important;
+
+  &:focus {
+   border-color: transparent !important;
+   border: 1px !important;
+  }
+}
+#wrapper {
+    padding-top: 15px;
+}
+ p {
+   line-height: 1.3125rem;
+ }
+
+ .comments {
+   margin: 2.5rem auto 0;
+   max-width: 60.75rem;
+   padding: 0 1.25rem;
+ }
+
+ .comment-wrap {
+   margin-bottom: 1.25rem;
+   display: table;
+   width: 100%;
+   min-height: 5.3125rem;
+ }
+
+ .photo {
+   padding-top: 0.625rem;
+   display: table-cell;
+   width: 3.5rem;
+ }
+ .photo .avatar {
+   height: 2.25rem;
+   width: 2.25rem;
+   border-radius: 50%;
+   background-size: contain;
+ }
+
+ .comment-block {
+   padding: 1rem;
+   background-color: #f5f5f5;
+   display: table-cell;
+   vertical-align: top;
+   border-radius: 0.1875rem;
+   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+ }
+ .comment-block textarea {
+   width: 100%;
+   resize: none;
+ }
+
+ .comment-text {
+   margin-bottom: 1.25rem;
+ }
+
+ .bottom-comment {
+   color: #acb4c2;
+   font-size: 0.875rem;
+ }
+ .comment-actions {
+   float: right;
+ }
+ .comment-actions li {
+   display: inline;
+   margin: -2px;
+   cursor: pointer;
+ }
+ .comment-actions li.show {
+   padding-right: 0.75rem;
+   border-right: 1px solid #e1e5eb;
+ }
+ .comment-actions li.destroy {
+   padding-left: 0.75rem;
+   padding-right: 0.125rem;
+ }
+
+
+
+
+ body{margin-top:20px;}
+
+ .content-item {
+     padding:30px 0;
+ }
+ 
+ .content-item.grey {
+   background-color:#F0F0F0;
+   padding:50px 0;
+   height:100%;
+ }
+ 
+ .content-item h2 {
+   font-weight:700;
+   font-size:35px;
+   line-height:45px;
+   text-transform:uppercase;
+   margin:20px 0;
+ }
+ 
+ .content-item h3 {
+   font-weight:400;
+   font-size:20px;
+   color:#555555;
+   margin:10px 0 15px;
+   padding:0;
+ }
+ 
+ .content-headline {
+   height:1px;
+   text-align:center;
+   margin:20px 0 70px;
+ }
+ 
+ .content-headline h2 {
+   background-color:#FFFFFF;
+   display:inline-block;
+   margin:-20px auto 0;
+   padding:0 20px;
+ }
+ 
+ .grey .content-headline h2 {
+   background-color:#F0F0F0;
+ }
+ 
+ .content-headline h3 {
+   font-size:14px;
+   color:#AAAAAA;
+   display:block;
+ }
+ 
+ 
+ #comments { 
+  
+ }
+ 
+ #comments form {
+   margin-bottom:30px;
+ }
+ 
+ #comments .btn {
+   margin-top:7px;
+ }
+ 
+ #comments form fieldset {
+   clear:both;
+ }
+ 
+ #comments form textarea {
+   height:100px;
+ }
+ 
+ #comments .media {
+   border-top:1px dashed #1a1818;
+   padding:20px 0;
+   margin:0;
+ }
+ 
+ #comments .media > .pull-left {
+     margin-right:20px;
+ }
+ 
+ #comments .media img {
+   max-width:100px;
+ }
+ 
+ #comments .media h4 {
+   margin:0 0 10px;
+ }
+ 
+ #comments .media h4 span {
+   font-size:14px;
+   float:right;
+   color:#999999;
+ }
+ 
+ #comments .media p {
+   margin-bottom:15px;
+   text-align:justify;
+ }
+ 
+ #comments .media-detail {
+   margin:0;
+ }
+ 
+ #comments .media-detail li {
+   color:#AAAAAA;
+   font-size:12px;
+   padding-right: 10px;
+   font-weight:600;
+ }
+ 
+ #comments .media-detail a:hover {
+   text-decoration:underline;
+ }
+ 
+ #comments .media-detail li:last-child {
+   padding-right:0;
+ }
+ 
+ #comments .media-detail li i {
+   color:#666666;
+   font-size:15px;
+   margin-right:10px;
+ }

@@ -1,20 +1,90 @@
 <% provide(:title, "Explore") %>
+<%= stylesheet_link_tag 'explore' %>
 
-<h1> Explore Videos </h1>
+<!-- javascript code here  -->
+<script type='text/javascript'>
+    function myClick(){
+    document.getElementById('myDropdown').classList.toggle('show');
+}
+
+    window.onclick = function(event){
+	if (!event.target.matches('.dropbtn')){
+		var dropdowns = document.getElementsByClassName('dropdown-content');
+		var i;
+		for(i=0; i<dropdowns.length; i++){
+			var openDropdown = dropdowns[i];
+			if(openDropdown.classList.contains('show')){
+				openDropdown.classList.remove('show');
+			}
+		}
+	}
+}
+</script>
+
 
 <!-- HTML -->
 
 <body>
 
 <div class="sidebar">
-<div>Subject 1</div>
-<div>Subject 2</div>
-<div>Subject 3</div>
+    
+    <br>
+    <br>
+    <%= form_with url: search_path, method: :get, remote: true do |f|%>
+        <%= f.label :Search_by_video_name %>
+        <%= f.text_field :name, placeholder: 'Search' %>
+        <%= f.submit 'search'%>
+    <% end %>
+
+    <br>
+    <br>
+
+   <!-- dropdown button with js code-->    
+   <div class="dropdown">
+		<button onclick='myClick()' class="dropbtn">Subjects</button>
+		<div id="myDropdown" class="dropdown-content">
+            <a><%= link_to "Science", :controller => :static_pages, :action => :science %></a>
+			<a><%= link_to "Comic", :controller => :static_pages, :action => :comic %></a>
+			<a><%= link_to "Others", :controller => :static_pages, :action => :others%></a>
+		</div>
+	</div>
 </div>
 
+<!--here is the body display -->
+
+<br>
+<br>
 <div class="body-text">
-<!-- body content -->
-<%= button_to "show videos", videos_path, :method => "get" %>
+
+    <!-- flash notice if there is no video matches -->
+    <%= render partial: "shared/flash" %>
+
+    <% if @videoNum >= 1 %>
+        <% @videos.each { |video| %>
+        <!-- video class here -->
+            <div class='explore-video'>
+                <video controls width="280" height="160" src="<%= video.file %>"></video> 
+                <%= video.name %>
+                <%= video.created_at %>
+                <%= video.subject %>
+                <!-- link to video show page -->
+                <%= link_to 'Show', video %>
+            </div>
+            <!-- make space between each div -->
+             &nbsp &nbsp &nbsp &nbsp &nbsp
+        <% } %>
+    <% end %>
+
+    <div id="search-video">
+        <% if !@display_src.blank? %>
+            <video controls width="480" height="320" src="<%= @display_src.file %>"></video>
+            <%= @display_src.name %> 
+            <%= @display_src.created_at %>
+            <%= @display_src.subject %>
+            <%= link_to 'Show', @display_src %>
+        <% end %>
+    </div>
+
 
 </div>
 

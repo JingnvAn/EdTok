@@ -1,8 +1,208 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*
+-------------------------
+start of nav bar stlying |
+-------------------------
+*/
+
+/**
+* Desktop Navigation 
+*/
+.navbar {
+  padding: 0;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar > ul > li {
+  white-space: nowrap;
+  padding: 10px 0 10px 24px;
+}
+
+.navbar a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Poppins", sans-serif;
+  color: rgb(6, 68, 104);
+  font-size: 15px;
+  padding: 0 4px;
+  white-space: nowrap;
+  transition: 0.3s;
+  letter-spacing: 0.4px;
+  position: relative;
+}
+
+.navbar a i {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: 5px;
+}
+
+.navbar > ul > li > a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  background-color: #e43c5c;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.navbar a:hover:before, .navbar li:hover > a:before, .navbar .active:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.navbar a:hover, .navbar .active, .navbar li:hover > a {
+  color: rgb(6, 68, 104);
+}
+
+/*
+end of nav bar stlying
+*/
+
+.home-title {
+  font-size: 5em;
+  font-family: 'Dancing Script', cursive;
+}
+
+.gradient {
+  /* fallback for old browsers */
+  background: #89f7fe;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(137, 247, 254, 0.5), rgba(102, 166, 255, 0.5));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(137, 247, 254, 0.5), rgba(102, 166, 255, 0.5))
+}
+// section{
+//   margin-top: -200px;
+// }
+section .wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(wave.png);
+  background-size: 1000px 100px;
+}
+
+section .wave.wave1 {
+  animation: animate 30s linear infinite;
+  z-index: 1000;
+  opacity: 0.8;
+  animation-delay: 0s;
+  bottom: 0;
+  position: fixed;
+}
+
+section .wave.wave2 {
+  animation: animate2 15s linear infinite;
+  z-index: 999;
+  opacity: 0.5;
+  animation-delay: -5s;
+  bottom: 10px;
+  // bottom: 0;
+  position: fixed;
+}
+
+section .wave.wave3 {
+  animation: animate 10s linear infinite;
+  z-index: 998;
+  opacity: 0.2;
+  animation-delay: -2s;
+  bottom: 15;
+  // bottom: 0;
+  position: fixed;
+}
+
+section .wave.wave4 {
+  animation: animate2 10s linear infinite;
+  z-index: 997;
+  opacity: 0.6;
+  animation-delay: -5s;
+  bottom: 20px;
+  // bottom: 0;
+  position: fixed;
+}
+
+@keyframes animate {
+  0%{
+    background-position-x: 0;
+  }
+  100%{
+    background-position-x: 1000px;
+  }
+}
+
+@keyframes animate2 {
+  0%{
+    background-position-x: 0;
+  }
+  100%{
+    background-position-x: -1000px;
+  }
+}
+
+
+.nav.navbar-nav.navbar-right {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: large;
+}
+
+.navbar-btn {
+  border-color: #ffdd76;
+  text-transform: uppercase;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 750;
+  color: #fff;
+  background-color: #ffdd76;
+  padding: 6px 12px !important;
+  margin: 8px 0px 0px 10px;
+}
+.navbar-btn:hover {
+  color: #FFF;
+  background-color: #f69918 !important;
+  border-color: #f69918 !important;
+}
+
+.btn-primary {
+  border-color: #f69918;
+  text-transform: uppercase;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  color: #fff;
+}
+
+.vl {
+  border-left: 3px solid grey;
+  height: 150px;
+  margin-left: 15%;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     margin: 0;
   }
   
@@ -13,7 +213,8 @@ body {
   *, *:before, *:after {
     box-sizing: inherit;
   }
-  
+
+
   .column {
     float: left;
     width: 33.3%;
@@ -69,3 +270,7 @@ body {
       display: block;
     }
   }
+
+
+
+  

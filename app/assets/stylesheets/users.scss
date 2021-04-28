@@ -4,41 +4,131 @@ $theme-pink: rgb(230, 130, 163);
 
 .profile-head {
     text-align: center;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 
     .profile-img {
-        // insert image styling here
+        padding-top: 20px;
+
+        img {
+            border-radius: 50px;
+            height: 100px;
+        }
     }
 
     #username {
         font-weight: bold;
-        padding-bottom: 20px;
     }
 
-    button {
-        // Button box
-        height: 40px;
-        width: 120px;
-        background-color: $theme-pink;
-        border: none;
-
-        // Button text
-        color: black;
-        font-size: medium;
-        
+    #stats {
+        display: inline-flex;
+         
+        p {
+            padding: 20px;
+        }
     }
+
+    .button-section {
+        padding-bottom: 25px;
+
+        .follow-button {
+            // Button box
+            height: 40px;
+            width: 120px;
+            background-color: $theme-pink;
+            border: none;
+    
+            // Button text
+            color: black;
+            font-size: medium;
+        }
+
+        .following-button {
+            // Button box
+            height: 40px;
+            width: 120px;
+            background-color: lightpink;
+            border: none;
+    
+            // Button text
+            color: rgb(54, 54, 54);
+            font-size: medium;
+        }
+
+        .edit-profile-button {
+            // Button box
+            height: 40px;
+            width: 120px;
+            background-color: rgb(228, 225, 225);
+            border: none;
+    
+            // Button text
+            color: rgb(54, 54, 54);
+            font-size: medium;
+        }
+
+        .follow-button:hover {
+            background-color: rgb(207, 117, 147);
+        }
+
+        .edit-profile-button:hover {
+            background-color: rgb(168, 164, 164);
+        }
+    }
+    
 }
 
-.profile-thumbnail {
-    height: 130px;
-    width: 250px;
-    background-color: $theme-pink;
-    border-radius: 20px;
+#profile-body {
 
-    p {
-        text-align: center;
-        vertical-align: middle;
-        line-height: 130px;
+    #videos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
+
+    a {
+        margin: 30px;
+
+        // First icon for uploading
+
+        .first {
+
+            background-color: $theme-pink;
+            border-radius: 20px;
+            height: 300px;
+            width: 180px;
+            
+
+            p {
+                text-align: center;
+                vertical-align: middle;
+                line-height: 280px;
+                font-size: 150px;
+                color: whitesmoke;
+
+                
+            }
+        }
+
+        .first:hover {
+            background-color: rgb(207, 117, 147);
+            border-radius: 20px;
+        }
+
+        // All other video thumbnails
+        .profile-thumbnail {
+            
+            video {
+                height: 300px;
+                //width: 250px;
+                
+            }
+        }
+    }
+
+    a:hover {
+        background-color: transparent;
+        text-decoration: none;
+    }
+
 }
 

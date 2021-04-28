@@ -2,26 +2,30 @@
   <% if video.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
-
       <ul>
       <% video.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
-    </div>
-  <% end %>
+     </div>
+   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :video_name %>
-  </div>
+   <%= form.label :name %>
+   <%= form.text_field :name, id: :video_name, class: 'form-control' %>
 
-  <div class="field">
-    <%= form.label :file %>
-    <%= form.file_field :file, id: :video_file %>
-  </div>
+  <%= form.label :subject %>
+  <%= form.select :subject, ["science", "comic", "others"], class: 'form-control' %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+  <br/>
+
+  <%= form.label :file %>
+
+  <%= form.file_field :file, id: :video_file, class: 'form-control' %>
+
+     <%= form.submit "Create Video", class: "btn btn-primary" %>
+
+ <% end %>
+
+ <div class="form-footer">
+   <p><%= link_to 'Cancel', profile_path %></p>
+ </div>
