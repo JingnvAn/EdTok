@@ -11,23 +11,24 @@
     </div>
   <% end %>
 
-
+  <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :video_name, class: 'form-control' %>
+    <%= form.text_field :name, id: :video_name %>
+  </div>
 
+  <div class="field">
     <%= form.label :subject %>
     <%= form.select :subject, ["science", "comic", "others"], class: 'form-control' %>
+  </div>
 
-    <br/>
-
+  <div class="field">
     <%= form.label :file %>
-    <%= form.file_field :file, id: :video_file, class: 'form-control' %>
+    <%= form.file_field :file, id: :video_file %>
+  </div>
 
-    <%= form.submit "Create Video", class: "btn btn-primary" %>
-
-<% end %>
-
-
+  <div class="actions">
+    <%= form.submit %>
+  </div>
 
   <div class="actions">
     <%= form.submit 'Upload Video', class: "btn btn-success"%>
