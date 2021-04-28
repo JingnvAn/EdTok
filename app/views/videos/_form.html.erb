@@ -11,25 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
+
     <%= form.label :name %>
-    <%= form.text_field :name, id: :video_name %>
-  </div>
+    <%= form.text_field :name, id: :video_name, class: 'form-control' %>
 
-  <div class="field">
-    <%= form.select :subject, ["science", "comic", "others"] %>
-  </div>
+    <%= form.label :subject %>
+    <%= form.select :subject, ["science", "comic", "others"], class: 'form-control' %>
 
-  <div class="field">
+    <br/>
+
     <%= form.label :file %>
-    <%= form.file_field :file, id: :video_file %>
-  </div>
+    <%= form.file_field :file, id: :video_file, class: 'form-control' %>
 
-  <div class='field'>
-    
-  </div>
+    <%= form.submit "Create Video", class: "btn btn-primary" %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
+
+<div class="form-footer">
+  <p><%= link_to 'Cancel', profile_path %></p>
+</div>
+
