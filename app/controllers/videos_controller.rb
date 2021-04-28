@@ -60,6 +60,11 @@ class VideosController < ApplicationController
     end
   end
 
+  #Allow user to follow video provider in the video show page
+  def follow 
+    Follow.create(user_id: current_user.id, following_id: params[:id_for_follow])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_video

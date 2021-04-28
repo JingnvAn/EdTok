@@ -1,23 +1,24 @@
+<div class="container">
+  <div class="row g-4">
+    <div class="col-sm-10">
+      <h2><%= @video.name %></h2>
+      <div class="video-info">
+        <span><%= @video.created_at%></span>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <a class="pull-left" href="#"><img class="user-image"><%=gravatar_for @video.users.first%></a>
+      <h4 class="user-link"><%=link_to @video.users.first.name, @video.users.first, class: "user-link"%></h4>
+      <%= link_to "Follow", follow_path, params: {id_for_follow: @video.users.first.id}, method: :post %>
+    </div>
+  </div>
+</div>
 
 <div>
   <video controls  class= "video" src="<%= @video.file %>"></video>
 </div>
 
-<div class="container">
-  <div class="row g-4">
-    <div class="col-sm-8">
-      <h3><%= @video.name %></h3>
-    </div>
-    <div class="col-sm-4">
-      <h4><%= @video.users.first.name%></h4>
-      <h4><p>12</p></h4>
-    </div>
-  </div>
 
-  <div class="profile-img">
-    <%= gravatar_for @video.users.first %>
-  </div>
-</div>
 
 <section class="content-item" id="comments">
   <div class="container">
@@ -61,7 +62,7 @@
         <div class="media">
           <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
           <div class="media-body">
-            <h4 class="media-heading"><%= link_to @users.where(id: comment.user_id).first.name, @users.where(id: comment.user_id).first %></h4>
+            <h4 class="media-heading"><%= link_to @users.where(id: comment.user_id).first.name, @users.where(id: comment.user_id).first ,class: "user-link"%></h4>
                           <p><%= comment.text %></p>
             </div>
 
