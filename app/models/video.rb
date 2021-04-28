@@ -14,9 +14,8 @@ class Video < ApplicationRecord
 
     mount_uploader :file, VideoUploader
 
-    # validates :name, presence: true, length: { maximum: 50 }
-    # validates :subject, presence: true
-    # validates :file, presence: true
+    validates :name, presence: true, length: { maximum: 15 }
+    validates :file, presence: true
     # process_in_background :video
 
   # def set_success(format, opts)

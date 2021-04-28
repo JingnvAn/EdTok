@@ -25,12 +25,12 @@ end
 
 
 # Create some test videos for the test users
-User.all.each do |user|
-    3.times do 
-        vid_name = "#{user.name}'s placeholder"
-        user.videos << Video.create(name: vid_name, subject: "Test")
-    end
-end 
+# User.all.each do |user|
+#     3.times do 
+#         vid_name = "#{user.name}'s placeholder"
+#         user.videos << Video.create(name: vid_name, subject: "Test")
+#     end
+# end 
 
 
 # Create some test data about the test videos
