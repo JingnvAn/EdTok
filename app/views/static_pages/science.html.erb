@@ -46,18 +46,22 @@
                 <a><%= link_to "Others", :controller => :static_pages, :action => :others%></a>
             </div>
         </div>
-
-
     </div>
+
 
     <h1>Science Section</h1>
 
+    <!-- video-display section  -->
     <div class= 'video-display'>
         <% @selected.each { |video| %>
+        <div class='subjects'> 
             <video controls width="320" height="160" src="<%= video.file %>"></video>
             <%= video.name %>
+            <%= video.created_at %>
+            <%= video.subject %>
             <%= link_to 'Show', video %>
             &nbsp &nbsp &nbsp
+        </div>
         <% } %>
     </div>
 </body>

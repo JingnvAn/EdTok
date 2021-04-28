@@ -53,9 +53,13 @@
 
     <div class= 'video-display'>
         <% @selected.each { |video| %>
+        <div class='subjects'> 
             <video controls width="320" height="160" src="<%= video.file %>"></video>
             <%= video.name %>
+            <%= video.created_at %>
+            <%= video.subject %>
             <%= link_to 'Show', video %>
+        </div>
             &nbsp &nbsp &nbsp
         <% } %>
     </div>

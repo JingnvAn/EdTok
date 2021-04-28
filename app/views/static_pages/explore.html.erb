@@ -61,23 +61,31 @@
 
     <% if @videoNum >= 1 %>
         <% @videos.each { |video| %>
-        <video controls width="280" height="160" src="<%= video.file %>"></video> 
-        <%= video.name %>
-        <%= link_to 'Show', video %>
-        &nbsp &nbsp &nbsp &nbsp &nbsp
+        <!-- video class here -->
+            <div class='explore-video'>
+                <video controls width="280" height="160" src="<%= video.file %>"></video> 
+                <%= video.name %>
+                <%= video.created_at %>
+                <%= video.subject %>
+                <!-- link to video show page -->
+                <%= link_to 'Show', video %>
+            </div>
+            <!-- make space between each div -->
+             &nbsp &nbsp &nbsp &nbsp &nbsp
         <% } %>
     <% end %>
 
     <div id="search-video">
         <% if !@display_src.blank? %>
-            <video controls width="500" height="320" src="<%= @display_src.file %>"></video>
+            <video controls width="480" height="320" src="<%= @display_src.file %>"></video>
             <%= @display_src.name %> 
+            <%= @display_src.created_at %>
+            <%= @display_src.subject %>
             <%= link_to 'Show', @display_src %>
         <% end %>
     </div>
 
 
 </div>
-
 
 </body>
