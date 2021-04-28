@@ -51,6 +51,8 @@
 
     </div>
 
-    <%= @selected %>
+    <% @selected.each { |video| %>
+        <video controls width="320" height="160" src="<%= video.file %>"></video>
+    <% } %>
 
 </body>
