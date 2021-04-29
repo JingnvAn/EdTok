@@ -77,7 +77,7 @@ Database relative: Video, User, Popular, Comments, Follower, Following
 
 
 
-### Completed(core view)
+### Improving(core view)
 
 * __Explore Homepage__
 
