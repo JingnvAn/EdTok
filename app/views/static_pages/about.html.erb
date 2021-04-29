@@ -1,24 +1,28 @@
 <% provide(:title, "About")%>
 
+<!-- ======= About This App ======== --!>
 <div class="about-section">
-  <h3>About Our App</h3>
-  <p>The EdTok aims to spread more knowledge in the form of short videos, helping users to utilize their leisure time to gain some interesting things through enjoyable ways.</p>
-  <p>Users can follow any other users on the platform, find who has followed them and who they are following.</p>
-  <p>Users share their work or expertise by uploading videos to the app and others can find it, respond (similar to a like button) to it if they like it, or make a comment on it.</p>
+    <div class="section-title">
+      <h2>The App</h2>
+      <h3>Our <span>App</span></h3>
+      <p class="left">EdTok aims to spread more knowledge in the form of short videos, helping users to utilize their leisure time to gain some interesting things through enjoyable ways.</p>
+      <p class= "left">Users can follow any other users on the platform, find who has followed them and who they are following.</p>
+      <p class= "left">Users share their work or expertise by uploading videos to the app and others can find it, respond (similar to a like button) to it if they like it, or make a comment on it.</p>    
+    </div>
 </div>
 
+<!-- OLD VERSION FOR TEAM INTRO
 <h1 style="text-align:center">Our Team</h1>
 <div class="row">
   <div class="column">
     <div class="card">
       <p class='aligncenter'>
-        <%= image_tag "about_us/Jane.jpeg", :size => "180x200" %>
+        <%= image_tag "about_us/Jingnu.jpeg", :size => "180x200" %>
       </p>
       <div class="container">
         <h2>Jingnu An</h2>
         <p class="title">UI designer && API searcher</p>
-        <p>Jingnu An has been an avid programmer since the senior year of her undergraduate study. She first started by programming in R that would allow her to do statistical analysis in educational research, and her love of the potential applications of programming has been growing ever since.</p>
-        <p>Jingnu got her first Software Engineering Internship at elphi Inc. where she worked on elphi’s Loan Origination System (LOS) dashboard webpage using React and JavaScript. She also initiated and managed elphi's intern collaboration meetings to enhance working efficiency and professional communication among the team.</p>
+        <p>Hi! I am a rising software engineer currently studying computer science. I've been an avid programmer since my senior year of undergraduate study. I first started by programming in R that would allow me to do statistical analysis in educational research, and my love of the potential applications of programming has been growing ever since. </p>
         <p>She is passionate about empowering girls to join in the science and technology field and is looking forward to using her programming skills to help forward and advocate for the responsible use and development of technology.</p>
         <p><a class="button" href="mailto:jingnuan@brandeis.edu">Contact Jingnu</a></p>
       </div>
@@ -70,3 +74,96 @@
     </div>
   </div>
 </div>
+
+--!>
+
+<!-- ======= Team Section ======= -->
+
+<section id="team" class="team">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Team</h2>
+      <h3>Our <span>Team</span></h3>
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <div class="member">
+          <div class="member-img">
+            <%= image_tag "about_us/Jingnu.jpeg", :size => "260x330" ,  :class => "img-fluid" %>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Jingnu An</h4>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <div class="member">
+          <div class="member-img">
+            <%= image_tag "about_us/Jenna.JPG", :size => "260x330" ,  :class => "img-fluid" %>
+            
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Jenna Blank</h4>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <div class="member">
+          <div class="member-img">
+            <%= image_tag "about_us/Wei.jpeg", :size => "260x330" ,  :class => "img-fluid" %>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Wei Liu</h4>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <div class="member">
+          <div class="member-img">
+            <%= image_tag "about_us/Robin.JPG", :size => "260x330",  :class => "img-fluid" %>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Guobin Chen</h4>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- End Team Section -->
