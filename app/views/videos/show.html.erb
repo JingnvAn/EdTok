@@ -1,75 +1,142 @@
-<div class="container">
-  <div class="row g-4">
-    <div class="col-sm-10">
-      <h2><%= @video.name %></h2>
-      <div class="video-info">
-        <span><%= @video.created_at%></span>
-      </div>
-    </div>
-    <div class="col-sm-2">
-      <a class="pull-left" href="#"><img class="user-image"><%=gravatar_for @video.users.first%></a>
-      <h4 class="user-link"><%=link_to @video.users.first.name, @video.users.first, class: "user-link"%></h4>
-      <%= link_to "Follow", follow_path, params: {id_for_follow: @video.users.first.id}, method: :post %>
-    </div>
-  </div>
-</div>
 
-<div>
-  <video controls  class= "video" src="<%= @video.file %>"></video>
-</div>
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
 
+        <div class="row">
 
+          <div class="col-lg-8 entries">
 
-<section class="content-item" id="comments">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <fieldset>
-          <div class="row g-2">
-            <%= form_with(model: @comment) do |form| %>
-              <% if @comment.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-                  <ul>
-                    <% @comment.errors.each do |error| %>
-                      <li><%= error.full_message %></li>
-                    <% end %>
-                  </ul>
+            <article class="entry entry-single">
+              <h2 class="entry-title">
+                <%= @video.name %>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html"><%= @video.users.first.name%></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01"><%= @video.created_at.to_s[0,20]%></time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html"><%= @comments.where(video_id: @video.id).count %> Comments</a></li>
+                </ul>
               </div>
+
+              <div class="entry-img">
+                <video controls  class= "video" src="<%= @video.file %>"></video>
+              </div>
+            </article><!-- End blog entry -->
+
+            <div class="blog-author d-flex align-items-center">
+              <img src="/assets/about_us/Wei.jpeg" class=" pull-left" alt="">
+              <div>
+                <h4><a href=""><%= link_to @video.users.first.name, @video.users.first %></a></h4>
+                <div class="social-links">
+                  <a href="https://twitters.com/#"><i class="bi bi-twitter"></i></a>
+                  <a href="https://facebook.com/#"><i class="bi bi-facebook"></i></a>
+                  <a href="https://instagram.com/#"><i class="biu bi-instagram"></i></a>
+                </div>
+                <p>
+                  <%= @video.users.first.bio%>
+                </p>
+              </div>
+            </div><!-- End blog author bio -->
+
+            <div class="blog-comments">
+
+              <h4 class="comments-count"><%= @comments.where(video_id: @video.id).count %> Comments</h4>
+
+              <% @comments.where(video_id: @video.id).each do |comment| %>
+                <div id="comment-1" class="comment">
+                  <div class="d-flex ">
+                    <div class="comment-img pull-left"><img src="/assets/about_us/Wei.jpeg" alt=""></div>
+                    <div>
+                      <h5 style="display:inline"><a href=""><%= link_to @users.where(id: comment.user_id).first.name, @users.where(id: comment.user_id).first ,class: "user-link"%></a></h5>
+                      <time><%= comment.created_at.to_s[0,10]%></time>
+                    </div>
+                    <p>
+                      <%= comment.text %>
+                    </p>
+                  </div>
+                </div><!-- End comment #1 -->
               <% end %>
-            
-              <% if current_user %>
-              <div class="col-sm-9 ">
-                <%= form.text_area :text, id: :comment_text, placeholder: "Enter your comments", class: "form-control"%>
-                <%= form.hidden_field :video_id, value: @video.id%>
-                <%= form.hidden_field :user_id, value: current_user.id%>
-              </div> 
-              <div class="col-sm-2">
-                <%= form.submit 'Add comment', class: "btn btn-success"%>
-              </div>  	 	
+
+              <%= form_with(model: @comment) do |form| %>
+                <% if @comment.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+                      <ul>
+                        <% @comment.errors.each do |error| %>
+                          <li><%= error.full_message %></li>
+                        <% end %>
+                      </ul>
+                  </div>
+                <% end %>
+              
+                <% if current_user %>
+                  <div class="reply-form">
+                    <h4>Leave a Comment</h4>
+                      <div class="row">
+                        <div class="col form-group">
+                        
+                          <%= form.text_area :text, id: :comment_text, placeholder: "Enter your comments", class: "form-control"%>
+                          <%= form.hidden_field :video_id, value: @video.id%>
+                          <%= form.hidden_field :user_id, value: current_user.id%>
+                        </div>
+                      </div>
+                      <%= form.submit 'Post Comment', class: "btn btn-primary"%>
+                  </div>
+                <% end %>
               <% end %>
 
+            </div><!-- End blog comments -->
 
-              <!-- <p id="notice"><%= notice %></p> -->
-            <% end %>
-          </div>  
-        </fieldset>
-  
+          </div><!-- End blog entries list -->
 
-      
 
-        <% @comments.where(video_id: @video.id).each do |comment| %>
-        <div class="media">
-          <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
-          <div class="media-body">
-            <h4 class="media-heading"><%= link_to @users.where(id: comment.user_id).first.name, @users.where(id: comment.user_id).first ,class: "user-link"%></h4>
-                          <p><%= comment.text %></p>
-            </div>
 
+          <div class="col-lg-4">
+
+            <div class="blog-sidebar">
+
+              <h3 class="sidebar-title">Search</h3>
+              <div class="sidebar-item search-form">
+                <%= form_with url: search_path, method: :get, remote: true do |f|%>
+                    <%= f.text_field :name, placeholder: 'Search' %>
+                    <button type="submit"><i class="bi bi-search"><%= f.submit%></i></button>
+                <% end %>
+
+                <%# <form action="">
+                  <input type="text">
+                  <button type="submit"><i class="bi bi-search"></i></button>
+                </form> %>
+              </div><!-- End sidebar search formn-->
+
+              <h3 class="sidebar-title">Categories</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  <li><a><%= link_to "Science", :controller => :static_pages, :action => :science %> <span>(<%= Video.where(subject: "science").count%>)</span></a></li>
+                  <li><a><%= link_to "Comic", :controller => :static_pages, :action => :comic %> <span>(<%= Video.where(subject: "comic").count%>)</span></a></li>
+                  <li><a ><%= link_to "Others", :controller => :static_pages, :action => :others%> <span>(<%= Video.where(subject: "other").count%>)</span></a></li>
+                </ul>
+              </div><!-- End sidebar categories-->
+
+              <h3 class="sidebar-title">Recent Videos</h3>
+              <div class="sidebar-item recent-posts">
+                <% Video.all.each do |video| %>
+                <div class="post-item clearfix">
+                  <div class="pull-left"><video style="margin-top:-15px; padding-right: 10px" width="100" height="100" src="<%= video.file %>"></video></div>
+                  <h4><a href="blog-single.html"><%= link_to video.name, video ,class: "user-link"%></a></h4>
+                  <time><%= video.created_at.to_s[0,10]%></time>
+                </div>
+                <% end %>
+
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
 
         </div>
-        <% end %>
+
       </div>
-    </div>  
-  </div>
-</section>
+    </section><!-- End Blog Single Section -->
+
+  </main><!-- End #main -->
