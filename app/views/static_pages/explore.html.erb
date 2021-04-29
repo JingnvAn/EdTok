@@ -24,68 +24,124 @@
 
 <!-- HTML -->
 
+<!- ------------------------------------
+======= Card-style video section =======      
+---------------------------------------- -->
+
 <body>
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-lg-8 entries">
+                    <article class="entry">
+                        <div class="entry-img">
+                            <% if @videoNum >= 1 %>
+                                <% @videos.each { |video| %>
+                                    <div class='explore-video'>
+                                        <video controls width="380" height="250" src="<%= video.file %>"></video>     
+                                    </div>
+                                    <h2 class="entry-title">
+                                        <%= video.name %> 
+                                    </h2>
+                                    <div class="entry-meta">
+                                        <ul>
+                                            <% username = Video.where(id: video.id).first.users.first.name %>
+                                            <% time = video.created_at %>
+                                            <li class="d-flex align-items-center"><i class="bi bi-person"></i> <%= username %> </li>
+                                            <li class="d-flex align-items-center"><i class="bi bi-clock"></i><%= time.to_formatted_s(:long) %></li>
+                                            <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i><%= video.subject %></li>
+                                        </ul>
+                                    </div>
+                    
+                                    <div class="entry-content">
+                                        <div class="read-more">
+                                            <%= link_to 'More', video %>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            <% end %>
+                        </div>
+                    </article><!-- End a Vidoe Card -->
+                </div>
 
-<div class="sidebar">
-    
-    <br>
-    <br>
-    <%= form_with url: search_path, method: :get, remote: true do |f|%>
-        <%= f.label :Search_by_video_name %>
-        <%= f.text_field :name, placeholder: 'Search' %>
-        <%= f.submit 'search'%>
-    <% end %>
+                <!-- - =========================  - -->
+                <!-- | =======side bar=========== | -->
+                <!-- - =========================  - -->
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        <h3 class="sidebar-title">Search</h3>
+                        <div class="sidebar-item search-form">
+                            <form action="">
+                                <input type="text">
+                                <button type="submit"><i class="bi bi-search"></i></button>
+                            </form>
+                        </div><!-- End sidebar search formn-->
 
-    <br>
-    <br>
+                        <h3 class="sidebar-title">Categories</h3>
+                        <div class="sidebar-item categories">
+                            <ul>
+                                <li><a href="#">General <span>(25)</span></a></li>
+                                <li><a href="#">Lifestyle <span>(12)</span></a></li>
+                                <li><a href="#">Travel <span>(5)</span></a></li>
+                                <li><a href="#">Design <span>(22)</span></a></li>
+                                <li><a href="#">Creative <span>(8)</span></a></li>
+                                <li><a href="#">Educaion <span>(14)</span></a></li>
+                            </ul>
+                        </div><!-- End sidebar categories-->
 
-   <!-- dropdown button with js code-->    
-   <div class="dropdown">
-		<button onclick='myClick()' class="dropbtn">Subjects</button>
-		<div id="myDropdown" class="dropdown-content">
-            <a><%= link_to "Science", :controller => :static_pages, :action => :science %></a>
-			<a><%= link_to "Comic", :controller => :static_pages, :action => :comic %></a>
-			<a><%= link_to "Others", :controller => :static_pages, :action => :others%></a>
-		</div>
-	</div>
-</div>
+                        <h3 class="sidebar-title">Recent Posts</h3>
+                        <div class="sidebar-item recent-posts">
+                            <div class="post-item clearfix">
+                                <img src="assets/img/blog/blog-recent-1.jpg" alt="">
+                                <h4><a href="blog-single.html">Nihil blanditiis at in nihil autem</a></h4>
+                                <time datetime="2020-01-01">Jan 1, 2020</time>
+                            </div>
 
-<!--here is the body display -->
+                            <div class="post-item clearfix">
+                                <img src="assets/img/blog/blog-recent-2.jpg" alt="">
+                                <h4><a href="blog-single.html">Quidem autem et impedit</a></h4>
+                                <time datetime="2020-01-01">Jan 1, 2020</time>
+                            </div>
 
-<br>
-<br>
-<div class="body-text">
+                            <div class="post-item clearfix">
+                                <img src="assets/img/blog/blog-recent-3.jpg" alt="">
+                                <h4><a href="blog-single.html">Id quia et et ut maxime similique occaecati ut</a></h4>
+                                <time datetime="2020-01-01">Jan 1, 2020</time>
+                            </div>
 
-    <!-- flash notice if there is no video matches -->
-    <%= render partial: "shared/flash" %>
+                            <div class="post-item clearfix">
+                                <img src="assets/img/blog/blog-recent-4.jpg" alt="">
+                                <h4><a href="blog-single.html">Laborum corporis quo dara net para</a></h4>
+                                <time datetime="2020-01-01">Jan 1, 2020</time>
+                            </div>
 
-    <% if @videoNum >= 1 %>
-        <% @videos.each { |video| %>
-        <!-- video class here -->
-            <div class='explore-video'>
-                <video controls width="280" height="160" src="<%= video.file %>"></video> 
-                <%= video.name %>
-                <%= video.created_at %>
-                <%= video.subject %>
-                <!-- link to video show page -->
-                <%= link_to 'Show', video %>
-            </div>
-            <!-- make space between each div -->
-             &nbsp &nbsp &nbsp &nbsp &nbsp
-        <% } %>
-    <% end %>
+                            <div class="post-item clearfix">
+                                <img src="assets/img/blog/blog-recent-5.jpg" alt="">
+                                <h4><a href="blog-single.html">Et dolores corrupti quae illo quod dolor</a></h4>
+                                <time datetime="2020-01-01">Jan 1, 2020</time>
+                            </div>
 
-    <div id="search-video">
-        <% if !@display_src.blank? %>
-            <video controls width="480" height="320" src="<%= @display_src.file %>"></video>
-            <%= @display_src.name %> 
-            <%= @display_src.created_at %>
-            <%= @display_src.subject %>
-            <%= link_to 'Show', @display_src %>
-        <% end %>
-    </div>
+                        </div><!-- End sidebar recent posts-->
 
-
-</div>
-
+                        <h3 class="sidebar-title">Tags</h3>
+                        <div class="sidebar-item tags">
+                            <ul>
+                                <li><a href="#">App</a></li>
+                                <li><a href="#">IT</a></li>
+                                <li><a href="#">Business</a></li>
+                                <li><a href="#">Mac</a></li>
+                                <li><a href="#">Design</a></li>
+                                <li><a href="#">Office</a></li>
+                                <li><a href="#">Creative</a></li>
+                                <li><a href="#">Studio</a></li>
+                                <li><a href="#">Smart</a></li>
+                                <li><a href="#">Tips</a></li>
+                                <li><a href="#">Marketing</a></li>
+                            </ul>
+                        </div><!-- End sidebar tags-->
+                    </div><!-- End sidebar -->
+                </div><!-- End blog sidebar -->
+            </div><!-- End div row  -->
+        </div><!-- End div container -->
+    </section>
 </body>
