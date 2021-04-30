@@ -76,7 +76,6 @@
                     <h4>Leave a Comment</h4>
                       <div class="row">
                         <div class="col form-group">
-                        
                           <%= form.text_area :text, id: :comment_text, placeholder: "Enter your comments", class: "form-control"%>
                           <%= form.hidden_field :video_id, value: @video.id%>
                           <%= form.hidden_field :user_id, value: current_user.id%>

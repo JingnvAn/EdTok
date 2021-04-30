@@ -6,133 +6,109 @@
 
         <div class="row">
 
-          <div class="col-lg-8 entries">
-            <%= render partial: "shared/flash" %>
+            <div class="col-lg-8 entries">
+                <%= render partial: "shared/flash" %>
 
-            <!-- Start blog entry(without search input)-->
-            <% if @videoNum >= 1 %>
+                <!-- Start blog entry(without search input)-->
+            
                 <% @videos.each do |video| %>
-                <article class="entry">
-                    <div class="entry-img">
-                        <video controls  class= "video" src="<%= video.file %>"></video>
-                    </div>
-
-                    <h2 class="entry-title">
-                        <%= video.name %>
-                    </h2>
-
-                    <div class="entry-meta">
-                        <ul>
-                            <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html"><%= video.users.first.name%></a></li>
-                            <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01"><%= video.created_at.to_s[0,20]%></time></a></li>
-                            <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html"><%= Comment.where(video_id: video.id).count %> Comments</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="entry-content">
-                        <div class="read-more">
-                            <%= link_to 'Show', video %>
+                    <article class="entry">
+                        <div class="entry-img">
+                            <video controls  class= "video" src="<%= video.file %>"></video>
                         </div>
-                    </div>
-                </article>
+
+                        <h2 class="entry-title">
+                            <%= video.name %>
+                        </h2>
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html"><%= video.users.first.name%></a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01"><%= video.created_at.to_s[0,20]%></time></a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html"><%= Comment.where(video_id: video.id).count %> Comments</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="entry-content">
+                            <div class="read-more">
+                                <%= link_to 'Show', video %>
+                            </div>
+                        </div>
+                    </article>
                 <%end%>
-            <% end %>
-            <!-- End blog entry(without search input)-->
+            
+                <!-- End blog entry(without search input)-->
 
-            <!-- Start result of search -->
-            <% if !@display_src.blank? %>
-                <article class="entry">
-                    <div class="entry-img">
-                        <video controls  class= "video" src="<%= @display_src.file %>"></video>
-                    </div>
+                <!-- Start result of search -->
+    
+                <!-- End result of search-->
 
-                    <h2 class="entry-title">
-                        <%= @display_src.name %>
-                    </h2>
-
-                    <div class="entry-meta">
-                        <ul>
-                            <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html"><%= @display_src.users.first.name%></a></li>
-                            <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01"><%= @display_src.created_at.to_s[0,20]%></time></a></li>
-                            <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html"><%= Comment.where(video_id: @display_src.id).count %> Comments</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="entry-content">
-                        <div class="read-more">
-                            <%= link_to 'Show', @display_src %>
-                        </div>
-                    </div>
-                </article>
-            <% end %>
-            <!-- End result of search-->
-
-            <%# <!-- End blog entries list -->
-            <div class="blog-pagination">
-              <ul class="justify-content-center">
-                <li><a href="#">1</a></li>
-                <li class="active"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-              </ul>
-            </div>
-            <!-- End blog entries list --> %>
-
-          </div>
-         
-
-          <div class="col-lg-4">
-
-            <div class="sidebar">
-
-              <h3 class="sidebar-title">Search</h3>
-              <div class="sidebar-item search-form">
-                <%= form_with url: search_path, method: :get, remote: true do |f|%>
-                    <%= f.text_field :name, placeholder: 'Search here' %>
-                    <button type="submit"><i class="bi bi-search"><%= f.submit%></i></button>
-                <% end %>
-              </div><!-- End sidebar search formn-->
-
-              <h3 class="sidebar-title">Categories</h3>
-              <div class="sidebar-item categories">
-                <ul>
-                  <li><a><%= link_to "Science", :controller => :static_pages, :action => :science %> <span>(<%= Video.where(subject: "science").count%>)</span></a></li>
-                  <li><a><%= link_to "Comic", :controller => :static_pages, :action => :comic %> <span>(<%= Video.where(subject: "comic").count%>)</span></a></li>
-                  <li><a ><%= link_to "Others", :controller => :static_pages, :action => :others%> <span>(<%= Video.where(subject: "other").count%>)</span></a></li>
+                <%# <!-- End blog entries list -->
+                <div class="blog-pagination">
+                <ul class="justify-content-center">
+                    <li><a href="#">1</a></li>
+                    <li class="active"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
                 </ul>
-              </div><!-- End sidebar categories-->
-
-              <h3 class="sidebar-title">Recent Videos</h3>
-              <div class="sidebar-item recent-posts">
-                <% Video.all.each do |video| %>
-                <div class="post-item clearfix">
-                  <div class="pull-left"><video style="margin-top:-15px; padding-right: 10px" width="100" height="100" src="<%= video.file %>"></video></div>
-                  <h4><a href="blog-single.html"><%= link_to video.name, video ,class: "user-link"%></a></h4>
-                  <time><%= video.created_at.to_s[0,10]%></time>
                 </div>
-                <% end %>
+                <!-- End blog entries list --> %>
 
-              </div><!-- End sidebar recent posts-->
+            </div>
+            
 
-              <%# <h3 class="sidebar-title">Tags</h3>
-              <div class="sidebar-item tags">
-                <ul>
-                  <li><a href="#">App</a></li>
-                  <li><a href="#">IT</a></li>
-                  <li><a href="#">Business</a></li>
-                  <li><a href="#">Mac</a></li>
-                  <li><a href="#">Design</a></li>
-                  <li><a href="#">Office</a></li>
-                  <li><a href="#">Creative</a></li>
-                  <li><a href="#">Studio</a></li>
-                  <li><a href="#">Smart</a></li>
-                  <li><a href="#">Tips</a></li>
-                  <li><a href="#">Marketing</a></li>
-                </ul>
-              </div><!-- End sidebar tags--> %>
+            <div class="col-lg-4">
 
-            </div><!-- End sidebar -->
+                <div class="sidebar">
 
-          </div><!-- End blog sidebar -->
+                <h3 class="sidebar-title">Search</h3>
+                <div class="sidebar-item search-form">
+                    <%= form_with url: search_path, method: :get, remote: true do |f|%>
+                        <%= f.text_field :name, placeholder: 'Search here' %>
+                        <button type="submit"><i class="bi bi-search"><%= f.submit%></i></button>
+                    <% end %>
+                </div><!-- End sidebar search formn-->
+
+                <h3 class="sidebar-title">Categories</h3>
+                <div class="sidebar-item categories">
+                    <ul>
+                    <li><a><%= link_to "Science", {:controller => :static_pages, :action => :explore, :subject => :science} %> <span>(<%= Video.where(subject: "science").count%>)</span></a></li>
+                    <li><a><%= link_to "Comic", {:controller => :static_pages, :action => :explore, :subject => :comic} %> <span>(<%= Video.where(subject: "comic").count%>)</span></a></li>
+                    <li><a ><%= link_to "Others", {:controller => :static_pages, :action => :explore, :subject => :other}%> <span>(<%= Video.where(subject: "other").count%>)</span></a></li>
+                    </ul>
+                </div><!-- End sidebar categories-->
+
+                <h3 class="sidebar-title">Recent Videos</h3>
+                <div class="sidebar-item recent-posts">
+                    <% Video.all.each do |video| %>
+                    <div class="post-item clearfix">
+                    <div class="pull-left"><video style="margin-top:-15px; padding-right: 10px" width="100" height="100" src="<%= video.file %>"></video></div>
+                    <h4><a href="blog-single.html"><%= link_to video.name, video ,class: "user-link"%></a></h4>
+                    <time><%= video.created_at.to_s[0,10]%></time>
+                    </div>
+                    <% end %>
+
+                </div><!-- End sidebar recent posts-->
+
+                <%# <h3 class="sidebar-title">Tags</h3>
+                <div class="sidebar-item tags">
+                    <ul>
+                    <li><a href="#">App</a></li>
+                    <li><a href="#">IT</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">Mac</a></li>
+                    <li><a href="#">Design</a></li>
+                    <li><a href="#">Office</a></li>
+                    <li><a href="#">Creative</a></li>
+                    <li><a href="#">Studio</a></li>
+                    <li><a href="#">Smart</a></li>
+                    <li><a href="#">Tips</a></li>
+                    <li><a href="#">Marketing</a></li>
+                    </ul>
+                </div><!-- End sidebar tags--> %>
+
+                </div><!-- End sidebar -->
+
+            </div><!-- End blog sidebar -->
 
         </div>
 
