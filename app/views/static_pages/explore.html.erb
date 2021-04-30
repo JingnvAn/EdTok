@@ -19,6 +19,7 @@
 		}
 	}
 }
+
 </script>
 
 
@@ -147,30 +148,3 @@
     </section>
     </main>
 </body>
-
-<!-- OLD SEARCH BAR CODE
-<div class="sidebar">
-    
-    <br>
-    <br>
-    <%= form_with url: search_path, method: :get, remote: true do |f|%>
-        <%= f.label :Search_by_video_name %>
-        <%= f.text_field :name, placeholder: 'Search' %>
-        <%= f.submit 'search'%>
-    <% end %>
-
-    <br>
-    <br>
-
-   <!-- dropdown button with js code-->    
-   <div class="dropdown">
-        <button onclick='myClick()' class="dropbtn">Subjects</button>
-        <div id="myDropdown" class="dropdown-content">
-            <a><%= link_to "Science", :controller => :static_pages, :action => :science %></a>
-            <a><%= link_to "Comic", :controller => :static_pages, :action => :comic %></a>
-            <a><%= link_to "Others", :controller => :static_pages, :action => :others%></a>
-        </div>
-    </div>
-</div>
-
--->
