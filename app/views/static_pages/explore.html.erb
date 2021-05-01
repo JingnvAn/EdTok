@@ -18,14 +18,14 @@
                         </div>
 
                         <h2 class="entry-title">
-                            <%= video.name %>
+                            <%= link_to video.name, video%>
                         </h2>
 
                         <div class="entry-meta">
                             <ul>
-                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html"><%= video.users.first.name%></a></li>
-                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01"><%= video.created_at.to_s[0,20]%></time></a></li>
-                                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html"><%= Comment.where(video_id: video.id).count %> Comments</a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-person"></i><%= video.users.first.name%></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i><%= video.created_at.to_s[0,20]%></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i><%= Comment.where(video_id: video.id).count %> Comment(s)</li>
                             </ul>
                         </div>
 
