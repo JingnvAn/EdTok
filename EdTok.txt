@@ -1,0 +1,12 @@
+---
+name: EdTok
+blurb: The EdTok aims to spread more knowledge in the form of short videos, helping users to utilize their leisure time to gain some interesting things through enjoyable ways. Users can follow any other users on the platform, find who has followed them and who they are following. Users share their work or expertise by uploading videos to the app and others can find it, respond (similar to a like button)  to it if they like it, or make a comment on it. 
+course: Cosi166
+semester: 2021 (Spring)
+github: https://github.com/JingnvAn/EdTok.git 
+application: https://dry-ocean-78358.herokuapp.com/ 
+presentation: https://docs.google.com/presentation/d/1PBKJV93BEIPITHCGjLQOxsxOx2clkBiavHxrGvUjm0o/edit#slide=id.gd714ebc896_0_0
+image: https://images.app.goo.gl/Tfcrmbdu9i8Zedkn8
+team: Jingnu An, Jenna Blank, Wei Liu, Guobin Chen
+
+---
