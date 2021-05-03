@@ -1,0 +1,308 @@
+<header class="navbar navbar-inverses">
+      <div class="container">
+         <%= link_to image_tag("edtok_logo.png", alt: "home_bg.png", width: "134.8", height: "38"), '#', id: "logo" %>
+        
+        <nav id="navbar" class="navbar navbar-right">
+          <ul>
+            <li><%= link_to "Home", home_path %></li>
+            <li><%= link_to "Explore", explore_path %></li>
+            <li><%= link_to "About", about_path %></li>
+    
+            
+            <% if logged_in? %> 
+              <li><%= link_to "Profile", profile_path %></li>
+              <li><%= link_to "Log out", logout_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Log in", login_path %></li>
+              <button class="btn navbar-btn" ><%= link_to "Sign Up", signup_path %></button>
+            <% end %>
+          </ul>
+        </nav>
+     </div>
+</header>
+              
+<body>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+    </div>
+    <% provide(:title, "About")%>
+
+<!-- ======= About This App ======== --!>
+<div class="about-section">
+    <div class="section-title">
+      <h2>The App</h2>
+      <h3>Our <span>App</span></h3>
+      <p class="left">EdTok aims to spread more knowledge in the form of short videos, helping users to utilize their leisure time to gain some interesting things through enjoyable ways.</p>
+      <p class= "left">Users can follow any other users on the platform, find who has followed them and who they are following.</p>
+      <p class= "left">Users share their work or expertise by uploading videos to the app and others can find it, respond (similar to a like button) to it if they like it, or make a comment on it.</p>    
+    </div>
+</div>
+
+<!-- OLD VERSION FOR TEAM INTRO
+<h1 style="text-align:center">Our Team</h1>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <p class='aligncenter'>
+        <%= image_tag "about_us/Jingnu.jpeg", :size => "180x200" %>
+      </p>
+      <div class="container">
+        <h2>Jingnu An</h2>
+        <p class="title">UI designer && API searcher</p>
+        <p>Hi! I am a rising software engineer currently studying computer science. I've been an avid programmer since my senior year of undergraduate study. I first started by programming in R that would allow me to do statistical analysis in educational research, and my love of the potential applications of programming has been growing ever since. </p>
+        <p>She is passionate about empowering girls to join in the science and technology field and is looking forward to using her programming skills to help forward and advocate for the responsible use and development of technology.</p>
+        <p><a class="button" href="mailto:jingnuan@brandeis.edu">Contact Jingnu</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <%= image_tag "about_us/Jenna.JPG", :size => "180x200"%>
+      <div class="container">
+        <h2>Jenna Blank</h2>
+        <p class="title">Data Manager</p>
+        <p>Jenna recently earned her BS in Mathematics with a minor in Computer Science from the University of Vermont in May 2020. She’s currently working towards her MS in Computer Science at Brandeis University. Moving forward, she hopes to learn more about Software Engineering with a special interest in its humanitarian aspects and computing for social good.</p>
+        <p><a class="button" href="mailto:jennablank@brandeis.edu">Contact Jenna</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <%= image_tag "about_us/Wei.jpeg", :size => "180x200" %>
+        <div class="container">
+        <h2>Wei Liu</h2>
+        <p class="title">Collaborator</p>
+        <p>After finishing my undergrad in Biotechnology, I started my road to Computer Science as a master student one year ago. Now I’m working on a research project aiming to predict the mutation tend of SARS-CoV-2. Beside I also interest in software engineering and am seeking an internship in summer to see how to make a real product in industry.</p>
+        <p><a class="button" href="mailto:weiliu@brandeis.edu">Contact Wei</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <%= image_tag "about_us/Robin.JPG", :size => "180x200" %>
+        <div class="container">
+        <h2>Guobin Chen</h2>
+        <p class="title">Collaborator</p>
+        <p>Guobin was majored in Biochemistry during his undergraduate period, and at time his research topic was synthesis of nanoparticles for drug delivery especially for chemotherapy drugs.</p>
+        <p>Right now, Guobin is a master student in the Computer Science department at Brandeis. He is interested in applying computer vision tech into medical image processing.</p>
+        <p><a class="button"href="mailto:guobinchen@brandeis.edu">Contact Guobin</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+--!>
+
+<!-- ======= Team Section ======= -->
+
+<section id="team" class="team">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Team</h2>
+      <h3>Our <span>Team</span></h3>
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <div class="member">
+          <div class="member-img">
+            <%= image_tag "about_us/Jingnu.jpeg", :size => "260x330" ,  :class => "img-fluid" %>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Jingnu An</h4>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <div class="member">
+          <div class="member-img">
+            <%= image_tag "about_us/Jenna.JPG", :size => "260x330" ,  :class => "img-fluid" %>
+            
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Jenna Blank</h4>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <div class="member">
+          <div class="member-img">
+            <%= image_tag "about_us/Wei.jpeg", :size => "260x330" ,  :class => "img-fluid" %>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Wei Liu</h4>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <div class="member">
+          <div class="member-img">
+            <%= image_tag "about_us/Robin.JPG", :size => "260x330",  :class => "img-fluid" %>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Guobin Chen</h4>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================ Behind the scence page ================ -->
+
+<section>
+<div class="container">
+
+<div class="section-title">
+  <h2>Story</h2>
+  <h3>Our <span>Story</span></h3>
+</div>
+</div>
+
+<div class='timeline-container'>
+<div class='timeline'>
+    <ul>
+        <li>
+            <div class='timeline-content'>
+                <h2 class='date'>Our story begins......</h2>
+                <p>We build our team named 'Wonderful-four'.</p>
+                <p>Introduce ourselves, strenghthen mutual understanding. </p>
+                <p>Brainstorm our product 'Edtok'.</p>
+
+            </div>
+        </li>
+
+        <li>
+            <div class='timeline-content'>
+                <h2 class='date'>week 2</h2>
+                <p>Stage1 : Kickoff!!!</p>
+                <p>Make basic decision about our project.</p>
+                <p>Schedule a fixed time meeting each week.</p>
+                <p>Set up environments!</p>
+            </div>
+        </li>
+
+        <li>
+            <div class='timeline-content'>
+                <h2 class='date'>week 3</h2>
+                <p>Get familiar with Ruby </p>
+                <p>Learn about Ruby on Rails(RoR) framwork</p>
+                <p>Come up with UI design of Edtok</p>
+                <p>Follow tutorial...</p>
+            </div>
+        </li>
+
+        <li>
+            <div class='timeline-content'>
+                <h2 class='date'>week 4</h2>
+                <p>Stage2: Hello World!!!</p>
+                <p>Make the most minimal rails app...</p>
+                <p>Learn and understand MVC principle and understand how the pieces connect together.</p>
+            </div>
+        </li>
+
+         <li>
+            <div class='timeline-content'>
+                <h2 class='date'>week 5</h2>
+                <p>Design database model of Edtok...</p>
+                <p>Figure out association between each model.</p>
+                <p>Make sure controller work smoothly between each web page.</p>
+            </div>
+        </li>
+
+         <li>
+            <div class='timeline-content'>
+                <h2 class='date'>week 6</h2>
+                <p>Stage3: Core</p>
+                <p>Build the heart of the prodcut...</p>
+                <p>Implement sign in/ sign up</p>
+                <p>Work on user page and session stuff...</p>
+            </div>
+        </li>
+
+         <li>
+            <div class='timeline-content'>
+                <h2 class='date'>week 7</h2>
+                <p>Work on search bar...</p>
+                <p>Handle how to display video</p>
+                <p>Look for help about how to store video and how to deploy app in Heroku...</p>
+            </div>
+        </li>
+
+         <li>
+            <div class='timeline-content'>
+                <h2 class='date'>All Set!!!</h2>
+                <p>Stage4: Launch !!!</p>
+                <p>Make decoration with UI...</p>
+                <p>Meet with Teaching Assistant</p>
+                <p>Prepare for final presentation...</p>
+            </div>
+        </li>
+
+    </ul>
+
+</div>
+
+</div>
+
+<br>
+<br>
+</section>
+
+
+
+<!-- End Team Section -->
+
+    <%= render 'layouts/footer' %>
+</body>
