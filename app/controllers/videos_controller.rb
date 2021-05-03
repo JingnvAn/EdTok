@@ -11,6 +11,7 @@ class VideosController < ApplicationController
     @comments = Comment.all
     @comment = Comment.new
     @users = User.all
+    @user = Video.find(params[:id]).users.first
     # render js: "alert('You are viewing video: #{params[:id]}')"
   end
 
