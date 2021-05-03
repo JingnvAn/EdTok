@@ -4,22 +4,29 @@ class StaticPagesController < ApplicationController
   end
 
   def explore
-    if params[:name].nil?
+    if params[:name]
+      @videos = Video.where(name: params[:name])
+        if @videos.blank?
+          flash.now[:novideo] = "Sorry, the video does not exist!"
+        elsif 
+          ##@display_src = @video
+          @videos
+        end   
+    elsif params[:subject]
+      @videos = Video.where(subject: params[:subject])
+        if @videos.blank?
+          flash.now[:novideo] = "Sorry, no video in this subject!"
+        elsif 
+          ##@display_src = @video
+          @videos
+        end   
+    else
       @videoNum = Video.count
       if @videoNum != 0
         @videos = Video.all
       else
         flash.now[:novideo] = "Sorry, there is no video!"
       end
-      
-    else
-        @videoNum = 0
-        @video = Video.find_by(name: params[:name])
-      if @video.blank?
-        flash.now[:novideo] = "Sorry, the video does not exist!"
-      elsif 
-        @display_src = @video
-      end   
     end
     
 

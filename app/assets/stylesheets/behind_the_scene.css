@@ -5,9 +5,8 @@
 }
 
 body{
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    color: white;
-
+    font-family: "Nunito", sans-serif;
+    color: black;
 }
 
 .timeline-container{
@@ -17,7 +16,7 @@ body{
     align-items: center;
     justify-content: center;
     padding: 100px 0;
-    background-color:darkseagreen;
+    
 }
 
 .timeline{
@@ -34,8 +33,8 @@ body{
 
 .timeline ul li{
     padding: 20px;
-    background-color: tomato;
-    color: white;
+    
+    
     border-radius: 10px;
     margin-bottom: 20px;
 }
@@ -58,7 +57,7 @@ body{
 .timeline-content .date{
     font-size: 30px;
     font-weight: 300;
-    color:wheat;
+    color:black;
     margin-bottom: 10px;
     letter-spacing: 2px;
 }
@@ -113,7 +112,7 @@ body{
     }
 
     .timeline ul li:hover::after{
-        background-color: greenyellow;
+        background-color: #e43c5c;
     }
     .timeline-content .date{
         position: absolute;

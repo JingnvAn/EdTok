@@ -3,6 +3,8 @@
 // @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
+
+
 /* universal */
 
 body {
@@ -146,28 +148,6 @@ h1.intro_title {
               inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
-/* sidebar */
-
-.sidebar {
-  margin-top: 180px;
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding-top: 40px;
-  background-color: lightblue;
-}
-  
-.sidebar div {
-  padding: 8px;
-  font-size: 24px;
-}
-  
-.body-text {
-  margin-left: 150px;
-  font-size: 18px;
-}
 
 /*video displaying page*/
 

@@ -11,9 +11,14 @@
 
 * Database: postgresql
 
+
+
+
 ### Product Objectives
 
 The EdTok aims to spread more knowledge in the form of short videos, helping users to utilize their leisure time to gain some interesting things through enjoyable ways.  Users can follow any other users on the platform, find who has followed them and who they are following. Users share their work or expertise by uploading videos to the app and others can find it, respond (similar to a like button) to it if they like it, or make a comment on it. 
+
+
 
 
 ### Prototype 
@@ -22,7 +27,30 @@ Can be found at "EdTok prototype.pdf"
 
 
 
-### In development(core view)
+
+### Interesting technologies
+
+__Video relative gem__	
+* carrier-wave
+	Deal with the video upload and play function
+
+* ffmpeg
+	A collection of libraries and tools to process multimedia content such as audio, video, subtitles and related metadata.
+
+* ffmpegthumbnailer
+	A lightweight video thumbnailer that can be used by file managers to create thumbnails for your video files. The thumbnailer uses ffmpeg to decode frames from the video files, so supported videoformats depend on the configuration flags of ffmpeg.
+
+__Storage relative gem__
+* figro
+	Tool to management sensitive configuration. It strives to be secure by default by encouraging a convention that keeps configuration out of Git.
+
+* fog-aws
+	Library to support Amazon clould service, in this case is the S3 bucket in Amazon cloud.
+
+
+
+
+### Completed(core view)
 
 * __Home Page__
 
@@ -31,28 +59,31 @@ Can be found at "EdTok prototype.pdf"
   Database relative: None
 
 * __Sign in/Sign up Page__
-
-	Sign in/Sign up page is to let user sign in/ sign up into the app
-
+	Sign in/Sign up page is to let user sign in/ sign up into the app. When users try to sign in, they need to provide their username, email address, password and password confirmation. When users try to login in, they just need to provide email address and password.  
+	
 	Database relative: User
 
 * __User Profile Page__
+	After successfully loggin in, users will come to profile page where they could see how many people she/he follows and how many people follow her/him. In this page, users could see videos they uploaded and they could also click upload button to upload their videos. 
 
-	User homepage displays what the user himself/herself has uploaded. Below this section, it displays who follows him/her and who the user follows. Also, there are some classifications of videos such as science, life and so on. When the user clicks the followers or following button, the user could see the videos uploaded by the follower and following user.
-
-	Database relative: User, Following, Follower
-
-* __Explore Homepage__
-
-	Explore homepage display the entry of all the video. Each video has a small window including their title, cover and popular. User can click it to its play page. On the right side, we plan to have sidebar have a search bar and list all the catagories of video by which user can located specific video.
-
-	Database relative: Video, User, Popular, Subject
+	Database relative: User, Following, Upload
 
 * __Video play page__
 
-User actually watch video here. Above the video play window, we have title, maker information. Below the video, we place two icon allow user to rate this video and follow the video maker. At the bottom of this page is the comments place.
+	The video profile page will be displayed by click the explore video card. In this page, users could makes there comments and see other users’ comments and show their own preference to this video. This page also provide simple information of the provider of video and link to her/his page.
 
 Database relative: Video, User, Popular, Comments, Follower, Following
+
+
+
+
+### Improving(core view)
+
+* __Explore Homepage__
+
+	When users firstly enter this page, the page would automatically display all the videos in the database with video name and created time and show button to enter video profile page which will show more detailed information of this video. The explore page has another capability that to search one video by video name, if there is no such video it would display flash note. The page could also display videos by three subjects (science, comic, others).
+
+	Database relative: Video, User, Popular, Subject
 
 
 
@@ -61,9 +92,6 @@ Database relative: Video, User, Popular, Comments, Follower, Following
 
 * __Following__
  Allow users to follow other
-
-* __Follower__
- Allow users see who are following her/him. 
 
 * __Video__
 Deal with the video upload and play function
@@ -84,7 +112,7 @@ Name: User
 Columns: integer id, string name, string username, string email, string bio
 
 Name: Video
-Columns: integer id, string name
+Columns: integer id, string name, integer user_id
 
 Name: Subject
 Columns: integer id, string name, integer grade_level
@@ -95,8 +123,6 @@ Columns: integer id, integer author, string text
 Name: Like
 Columns: integer id, integer liked_by
 
-Name: Follower
-Columns: integer id, integer user_id, integer follower_id
 
 Name: Following
 Columns: integer id, integer user_id, integer following_id
@@ -119,10 +145,6 @@ Columns: integer id, integer video_id, integer subject_id
 Name: Reaction
 Columns: integer id, integer video_id, integer like_id
 
-*Association table between Video and Comment -- one to many
-Name: Response
-Columns: integer id, integer video_id, integer comment_id
-
 
 
 ### URL
@@ -132,11 +154,3 @@ Home page: /
 Static page: 	Behind the scene:  /behind_the_scene
 		About:/about
 Logout:  /logout
-
-
-
-### Gem 
-* carrier-wave
-	Deal with the video upload and play function
-
-
