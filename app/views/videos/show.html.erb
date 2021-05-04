@@ -119,9 +119,9 @@
               <h3 class="sidebar-title">Categories</h3>
               <div class="sidebar-item categories">
                 <ul>
-                  <li><a><%= link_to "Science", :controller => :static_pages, :action => :science %> <span>(<%= Video.where(subject: "science").count%>)</span></a></li>
-                  <li><a><%= link_to "Comic", :controller => :static_pages, :action => :comic %> <span>(<%= Video.where(subject: "comic").count%>)</span></a></li>
-                  <li><a ><%= link_to "Others", :controller => :static_pages, :action => :others%> <span>(<%= Video.where(subject: "other").count%>)</span></a></li>
+                    <li><a><%= link_to "Science", {:controller => :static_pages, :action => :explore, :subject => :science} %> <span>(<%= Video.where(subject: "science").count%>)</span></a></li>
+                    <li><a><%= link_to "Comic", {:controller => :static_pages, :action => :explore, :subject => :comic} %> <span>(<%= Video.where(subject: "comic").count%>)</span></a></li>
+                    <li><a ><%= link_to "Others", {:controller => :static_pages, :action => :explore, :subject => :other}%> <span>(<%= Video.where(subject: "others").count%>)</span></a></li>
                 </ul>
               </div><!-- End sidebar categories-->
 
