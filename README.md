@@ -7,6 +7,8 @@
 
 * Developers: [Jingnu An](https://www.linkedin.com/in/jingnuan/), Jenna Blank, Wei Liu, Guobin Chen
 
+* A introduction via github page: [Link to github page](https://jingnvan.github.io/EdTok/)
+
 * Ruby version: 2.7.2, Rails version: 6.1.3
 
 * Database: postgresql
